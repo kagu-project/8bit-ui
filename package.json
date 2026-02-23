@@ -1,6 +1,7 @@
 {
   "name": "8bit-ui-workspace",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter 8bit-ui dev",
