@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu } from '8bit-ui';
+import { Menu } from '@kagu-project/8bit-ui';
 
 export const MenuPreview = () => (
   <Menu>

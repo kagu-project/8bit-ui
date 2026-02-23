@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Select } from '8bit-ui';
+import { Select } from '@kagu-project/8bit-ui';
 
 const OPTIONS = [
   { value: 'Engineer', label: 'Engineer' },

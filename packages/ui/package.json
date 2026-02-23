@@ -1,11 +1,32 @@
 {
-  "name": "8bit-ui",
-  "private": true,
-  "version": "0.8.0",
+  "name": "@kagu-project/8bit-ui",
+  "private": false,
+  "version": "0.0.0",
+  "description": "Retro-styled React component library inspired by classic handheld gaming.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kagu-project/8bit-ui.git"
+  },
+  "homepage": "https://github.com/kagu-project/8bit-ui#readme",
+  "bugs": {
+    "url": "https://github.com/kagu-project/8bit-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "8bit",
+    "retro"
+  ],
   "type": "module",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/8bit-ui.umd.cjs",
   "module": "./dist/8bit-ui.js",
   "types": "./dist/index.d.ts",

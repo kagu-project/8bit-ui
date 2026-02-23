@@ -33,7 +33,7 @@ import {
   useToast,
   type ButtonProps,
   type MenuItemProps,
-} from '8bit-ui';
+} from '@kagu-project/8bit-ui';
 
 const typedButtonProps: ButtonProps = {
   variant: 'outline',

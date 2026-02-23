@@ -1,6 +1,6 @@
 'use client';
 
-import { BottomNav } from '8bit-ui';
+import { BottomNav } from '@kagu-project/8bit-ui';
 
 export const BottomNavPreview = () => (
   <BottomNav variant="floating">

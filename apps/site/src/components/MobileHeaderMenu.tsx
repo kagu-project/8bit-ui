@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu } from '8bit-ui';
+import { Menu } from '@kagu-project/8bit-ui';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import styles from './MobileHeaderMenu.module.css';

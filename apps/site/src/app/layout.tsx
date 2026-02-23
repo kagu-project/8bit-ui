@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Press_Start_2P, VT323 } from 'next/font/google';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { Header, Toolbar } from '8bit-ui';
+import { Header, Toolbar } from '@kagu-project/8bit-ui';
 import { MobileHeaderMenu } from '@/components/MobileHeaderMenu';
 import { Providers } from '@/components/Providers';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';

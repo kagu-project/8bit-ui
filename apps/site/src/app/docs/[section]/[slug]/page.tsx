@@ -5,7 +5,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { components } from '@/components/mdx-components';
-import { Card, Text } from '8bit-ui';
+import { Card, Text } from '@kagu-project/8bit-ui';
 import { getAllDocParams, getDoc } from '@/lib/docs';
 
 export async function generateStaticParams() {

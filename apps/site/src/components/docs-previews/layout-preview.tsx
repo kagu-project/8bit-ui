@@ -1,6 +1,6 @@
 'use client';
 
-import { BottomNav, Header, Layout, Toolbar } from '8bit-ui';
+import { BottomNav, Header, Layout, Toolbar } from '@kagu-project/8bit-ui';
 
 export const LayoutPreview = () => (
   <Layout

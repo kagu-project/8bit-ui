@@ -1,4 +1,4 @@
-import { Card, Heading, Text, Button, Tag, Screen } from '8bit-ui';
+import { Card, Heading, Text, Button, Tag, Screen } from '@kagu-project/8bit-ui';
 import { siteConfig } from '@/lib/site-config';
 
 const heroSignals = [
@@ -70,7 +70,7 @@ export default function HomePage() {
                 <span className="promptChar" aria-hidden>
                   &gt;
                 </span>
-                <code>npm install 8bit-ui</code>
+                <code>npm install @kagu-project/8bit-ui</code>
               </div>
 
               <div className="ctaRow">
@@ -176,7 +176,7 @@ export default function HomePage() {
             </ul>
 
             <div className="homeMiniCode" aria-label="Example import snippet">
-              <code>{"import { Button, Card, Tag } from '8bit-ui';"}</code>
+              <code>{"import { Button, Card, Tag } from '@kagu-project/8bit-ui';"}</code>
             </div>
           </Card>
         </div>

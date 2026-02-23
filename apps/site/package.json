@@ -4,13 +4,13 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm --filter 8bit-ui build && next build",
+    "build": "pnpm --filter @kagu-project/8bit-ui build && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "8bit-ui": "workspace:*",
+    "@kagu-project/8bit-ui": "workspace:*",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.11.1",
     "next": "^16.1.6",

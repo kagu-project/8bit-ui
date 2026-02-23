@@ -1,5 +1,5 @@
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
-import * as UI from '8bit-ui';
+import * as UI from '@kagu-project/8bit-ui';
 import {
   BottomNavPreview,
   DataTableActionsPreview,

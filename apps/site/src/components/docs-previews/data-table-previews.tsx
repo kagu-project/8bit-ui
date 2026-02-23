@@ -6,7 +6,7 @@ import {
   DataTable,
   type DataTableProps,
   type DataTableState,
-} from '8bit-ui';
+} from '@kagu-project/8bit-ui';
 
 type Player = {
   id: number;

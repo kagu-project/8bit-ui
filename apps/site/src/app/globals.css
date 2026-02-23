@@ -1,4 +1,4 @@
-@import '8bit-ui/style.css';
+@import '@kagu-project/8bit-ui/style.css';
 @import 'highlight.js/styles/base16/summercamp.css';
 
 :root {

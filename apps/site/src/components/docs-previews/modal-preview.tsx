@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, Modal } from '8bit-ui';
+import { Button, Modal } from '@kagu-project/8bit-ui';
 
 export const ModalPreview = () => {
   const [isOpen, setIsOpen] = useState(false);
