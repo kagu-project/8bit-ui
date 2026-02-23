@@ -1,0 +1,27 @@
+button.trigger {
+  padding: 4px 6px;
+  min-width: unset;
+  min-height: unset;
+  background: transparent;
+  border: 2px solid transparent;
+  color: inherit;
+  font-family: var(--8bit-font-header);
+  font-size: 0.62rem;
+  line-height: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.trigger:hover,
+button.trigger:focus-visible {
+  background: transparent;
+  border-color: currentColor;
+  box-shadow: none;
+  outline: none;
+  filter: none;
+}
+
+.content {
+  min-width: 172px;
+}

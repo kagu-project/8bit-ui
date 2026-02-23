@@ -1,0 +1,44 @@
+# Select
+
+Use `Select` for single-choice option lists.
+
+## Import
+
+```tsx
+import { Select } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <SelectPreview />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [role, setRole] = useState<string | number>('Engineer');
+
+<Select
+  value={role}
+  onChange={setRole}
+  options={[
+    { value: 'Engineer', label: 'Engineer' },
+    { value: 'Designer', label: 'Designer' },
+    { value: 'QA', label: 'QA' },
+  ]}
+/>;
+```
+
+## Key Props
+
+- `options`: accepts primitives or `{ value, label }`
+- `value`: selected option value
+- `onChange`: returns selected value
+- `placeholder`
+- `variant`: `'solid' | 'outline' | 'ghost'`
+
+## Accessibility
+
+- Provides button/listbox semantics with keyboard support.
+- Provide surrounding field label text for context.

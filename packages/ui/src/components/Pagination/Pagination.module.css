@@ -1,0 +1,44 @@
+/* Pagination.module.css */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--8bit-font-body);
+}
+
+.pageBtn {
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 4px;
+  transition: transform 0.1s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.pageBtn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.active {
+  background: var(--8bit-primary, #000) !important;
+  color: #fff;
+  border-color: #000;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #eee;
+  border-color: #aaa;
+}

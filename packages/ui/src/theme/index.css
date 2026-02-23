@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import './variables.css';
+
+/* Global Reset: Essential for consistent sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--8bit-font-body);
+  background-color: var(--8bit-bg);
+  color: var(--8bit-text);
+}
+
+/* Styling for inline code elements specifically (excluding block level <pre><code>) */
+p code,
+li code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.9em;
+  background-color: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--8bit-text);
+}
+
+[data-theme='dark'] :is(p code, li code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code) {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light'])
+    :is(p code, li code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code) {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}

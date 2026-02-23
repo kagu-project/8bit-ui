@@ -1,0 +1,32 @@
+# Tag
+
+Use `Tag` for small status labels, categories, and metadata chips.
+
+## Import
+
+```tsx
+import { Tag } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Tag label="Beta" color="warning" variant="solid" size="md" />
+  <Tag label="Online" color="success" variant="outline" size="sm" />
+</div>
+
+```tsx
+<Tag label="Beta" color="warning" variant="solid" size="md" />
+```
+
+## Key Props
+
+- `label`: displayed text/content
+- `variant`: `'solid' | 'outline'`
+- `color`: `'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'`
+- `size`: `'sm' | 'md' | 'lg'`
+- `icon`: optional left icon
+
+## Accessibility
+
+- Treat tags as supplementary labels, not primary controls.

@@ -1,0 +1,33 @@
+# Card
+
+Use `Card` for grouped content blocks with optional headers.
+
+## Import
+
+```tsx
+import { Card } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Card title="Profile" variant="solid">
+    <p>Level 12 Ranger</p>
+  </Card>
+</div>
+
+```tsx
+<Card title="Profile" variant="solid">
+  <p>Level 12 Ranger</p>
+</Card>
+```
+
+## Key Props
+
+- `title`: optional card header content
+- `variant`: `'solid' | 'outline'`
+- Plus all native `<div>` props
+
+## Accessibility
+
+- Use semantic child content (`<h*>`, `<p>`, lists) inside the card body.

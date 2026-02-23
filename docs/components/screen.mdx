@@ -1,0 +1,37 @@
+# Screen
+
+Use `Screen` to wrap content with CRT/retro display effects.
+
+- `mode="fixed"` (default) for full-screen app shells.
+- `mode="inline"` for section backgrounds in regular pages.
+
+## Import
+
+```tsx
+import { Screen } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Screen mode="fixed" scanlines vignette grid>
+    <p>Boot sequence complete.</p>
+  </Screen>
+</div>
+
+```tsx
+<Screen mode="fixed" scanlines vignette grid>
+  <p>Boot sequence complete.</p>
+</Screen>
+```
+
+## Key Props
+
+- `mode`: `fixed` (default) or `inline`
+- `backgroundImage`: optional background image URL
+- `scanlines`, `vignette`, `grid`: overlay effect toggles
+
+## Accessibility
+
+- Keep text contrast high when effects are enabled.
+- Avoid overusing motion/overlay intensity for long-form reading areas.

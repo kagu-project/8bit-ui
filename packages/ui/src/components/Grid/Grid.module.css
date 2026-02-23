@@ -1,0 +1,32 @@
+/* Grid.module.css */
+.grid {
+  display: list-item; /* Fallback */
+  width: 100%;
+}
+
+/* Grid Layout */
+.layout-grid {
+  display: grid;
+  /* Auto-fill columns with min-width of 250px (adjustable via var) */
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width, 240px), 1fr));
+  gap: var(--grid-gap, 24px);
+}
+
+/* List Layout */
+.layout-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap, 16px);
+}
+
+/* Empty State */
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  text-align: center;
+  border: 4px dashed #ccc;
+  color: #888;
+  font-family: var(--8bit-font-body);
+}

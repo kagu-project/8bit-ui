@@ -1,0 +1,56 @@
+.container {
+  display: inline-flex;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  background: var(--8bit-border);
+}
+
+.button {
+  border: 0;
+  border-right: var(--8bit-pixel-size) solid var(--8bit-border);
+  background: var(--8bit-neutral);
+  color: var(--8bit-bg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 30px;
+  padding: 6px 10px;
+  font-family: var(--8bit-font-header);
+  font-size: 0.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.button:last-child {
+  border-right: 0;
+}
+
+.button:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--8bit-focus);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.buttonActive {
+  background: var(--8bit-primary);
+  color: #fff;
+}
+
+.buttonDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

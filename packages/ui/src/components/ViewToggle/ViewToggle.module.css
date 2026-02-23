@@ -1,0 +1,38 @@
+/* ViewToggle.module.css */
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  position: relative;
+}
+
+/* Grid Icon (4 dots) */
+.iconGrid,
+.iconList {
+  background: transparent;
+}
+
+.iconGrid::before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  box-shadow:
+    9px 0 0 currentColor,
+    0 9px 0 currentColor,
+    9px 9px 0 currentColor;
+}
+
+/* List Icon (3 lines) */
+.iconList::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 4px;
+  background: currentColor;
+  box-shadow:
+    0 6px 0 currentColor,
+    0 12px 0 currentColor;
+}

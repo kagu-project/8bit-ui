@@ -1,0 +1,31 @@
+/* Form.module.css */
+
+/* Shared container for Checkbox and Radio */
+.container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--8bit-font-body);
+  font-size: 1rem;
+  margin-right: 16px;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+.label {
+  margin-left: 8px;
+}
+
+/* Hidden Input */
+.input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}

@@ -1,0 +1,46 @@
+# Grid
+
+Use `Grid` to lay out repeatable cards/items in grid or list form.
+
+## Import
+
+```tsx
+import { Grid } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Grid columns="auto" minWidth={240} gap={12}>
+    <div className="previewTile">Item A</div>
+    <div className="previewTile">Item B</div>
+    <div className="previewTile">Item C</div>
+  </Grid>
+</div>
+
+```tsx
+<Grid columns="auto" minWidth={240} gap={12}>
+  <div className="gridItem">Item A</div>
+  <div className="gridItem">Item B</div>
+  <div className="gridItem">Item C</div>
+</Grid>
+```
+
+```css
+.gridItem {
+  border: 2px solid var(--8bit-border);
+  background: #fff;
+  padding: 10px;
+}
+```
+
+## Key Props
+
+- `columns`: `number | 'auto'` (`1` gives list layout)
+- `gap`: spacing between items
+- `minWidth`: minimum tile width for auto-fill mode
+- `emptyState`: fallback content when children are empty
+
+## Accessibility
+
+- Render semantically meaningful item children (`article`, `button`, links) based on use case.

@@ -1,0 +1,172 @@
+# DataTable
+
+`DataTable` is the higher-level table component with built-in sorting, filtering, pagination, and optional row selection.
+
+## DataTable vs Table
+
+- Use `DataTable` when you need stateful data interactions quickly.
+- Use [`Table`](./table.mdx) when you want full custom behavior and rendering.
+
+## Import
+
+```tsx
+import { DataTable } from '8bit-ui';
+import type { ColumnDef } from '@tanstack/react-table';
+```
+
+## Quick Start (Client Mode)
+
+<div className="preview">
+  <DataTable
+    columns={[
+      { accessorKey: 'name', header: 'Name', enableSorting: true },
+      { accessorKey: 'role', header: 'Role', enableSorting: true },
+      { accessorKey: 'score', header: 'Score', enableSorting: true },
+    ]}
+    data={[
+      { id: 1, name: 'Nova', role: 'Engineer', score: 94 },
+      { id: 2, name: 'Echo', role: 'Designer', score: 88 },
+    ]}
+  />
+</div>
+
+```tsx
+type Player = { id: number; name: string; role: string; score: number };
+
+const columns: Array<ColumnDef<Player, unknown>> = [
+  { accessorKey: 'name', header: 'Name', enableSorting: true },
+  { accessorKey: 'role', header: 'Role', enableSorting: true },
+  { accessorKey: 'score', header: 'Score', enableSorting: true },
+];
+
+const rows: Player[] = [
+  { id: 1, name: 'Nova', role: 'Engineer', score: 94 },
+  { id: 2, name: 'Echo', role: 'Designer', score: 88 },
+];
+
+<DataTable columns={columns} data={rows} />;
+```
+
+## Core Features
+
+- Single-column sorting
+- Global search filtering
+- Optional per-column filters (`text`, `select`, `multi-select`)
+- Numbered pagination
+- Client and server modes
+- Optional row selection (`single` and `multiple`)
+- Loading, empty, and error states
+
+## Row Selection
+
+Use stable IDs with `getRowId`, especially in server mode.
+
+<div className="preview">
+  <DataTableRowSelectionPreview />
+</div>
+
+```tsx
+<DataTable
+  columns={columns}
+  data={rows}
+  enableRowSelection
+  selectionMode="multiple"
+  getRowId={(row) => String(row.id)}
+/>
+```
+
+## Per-Column Filtering
+
+Enable all column filters, then override behavior per column with `columnFilterConfig`.
+
+<div className="preview">
+  <DataTableColumnFiltersPreview />
+</div>
+
+```tsx
+<DataTable
+  columns={columns}
+  data={rows}
+  enableColumnFilters
+  columnFiltersPlacement="menu"
+  columnFilterConfig={{
+    role: {
+      type: 'multi-select',
+      options: [
+        { value: 'Engineer', label: 'Engineer' },
+        { value: 'Designer', label: 'Designer' },
+        { value: 'QA', label: 'QA' },
+      ],
+    },
+  }}
+/>
+```
+
+## Actions Column Pattern (Optional)
+
+Add row-level actions with `createDataTableActionsColumn` and keep business logic in app code.
+
+<div className="preview">
+  <DataTableActionsPreview />
+</div>
+
+```tsx
+import { DataTable, createDataTableActionsColumn } from '8bit-ui';
+
+const actionsColumn = createDataTableActionsColumn<Player>({
+  getTriggerAriaLabel: ({ originalRow }) => `Row actions for ${originalRow.name}`,
+  getActions: ({ originalRow }) => [
+    { id: 'view', label: 'View', onSelect: () => console.log('view', originalRow.id) },
+    { id: 'edit', label: 'Edit', onSelect: () => console.log('edit', originalRow.id) },
+    { id: 'delete', label: 'Delete', danger: true, onSelect: () => console.log('delete') },
+  ],
+});
+
+<DataTable columns={[...columns, actionsColumn]} data={rows} />;
+```
+
+## Server Mode (Controlled)
+
+In `mode="server"`, pass controlled state and always provide `totalRows`.
+
+<div className="preview">
+  <DataTableServerModePreview />
+</div>
+
+```tsx
+import { useState } from 'react';
+import { DataTable, type DataTableState } from '8bit-ui';
+
+const [tableState, setTableState] = useState<DataTableState>({
+  globalFilter: '',
+  sorting: [],
+  columnFilters: [],
+  pagination: { pageIndex: 0, pageSize: 25 },
+});
+
+<DataTable
+  columns={columns}
+  data={rows}
+  mode="server"
+  totalRows={500}
+  state={tableState}
+  onStateChange={setTableState}
+/>;
+```
+
+## Key Props
+
+- `mode`: `'client' | 'server'` (default: `'client'`)
+- `columns`: TanStack column definitions
+- `data`: row data for current mode/page
+- `totalRows`: required for accurate server-mode pagination
+- `state` / `onStateChange`: controlled table state
+- `enableColumnFilters`, `columnFiltersPlacement`, `columnFilterConfig`
+- `enableRowSelection`, `selectionMode`, `selectedRowIds`, `onSelectedRowIdsChange`
+
+## Accessibility Notes
+
+- Sorting headers expose `aria-sort`.
+- Pagination uses descriptive page labels.
+- Loading status uses live-region announcements.
+- For primitive table markup, see [Table](./table.mdx).

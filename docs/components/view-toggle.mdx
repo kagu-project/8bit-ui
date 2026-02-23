@@ -1,0 +1,33 @@
+# ViewToggle
+
+Use `ViewToggle` to switch between grid and list presentation modes.
+
+## Import
+
+```tsx
+import { ViewToggle } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <ViewToggle view="grid" />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [view, setView] = useState<'grid' | 'list'>('grid');
+
+<ViewToggle view={view} onChange={setView} />;
+```
+
+## Key Props
+
+- `view`: `'grid' | 'list'`
+- `onChange`: callback with the next view value
+
+## Accessibility
+
+- Toggle buttons expose `aria-label` and keyboard interaction.
+- Pair with visible text nearby to clarify what the toggle changes.

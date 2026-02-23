@@ -1,0 +1,20 @@
+/* utility.module.css */
+.notched {
+  --pixel: var(--8bit-pixel-size);
+
+  /* 12-point polygon for single-notch effect */
+  clip-path: polygon(
+    var(--pixel) 0,
+    calc(100% - var(--pixel)) 0,
+    calc(100% - var(--pixel)) var(--pixel),
+    100% var(--pixel),
+    100% calc(100% - var(--pixel)),
+    calc(100% - var(--pixel)) calc(100% - var(--pixel)),
+    calc(100% - var(--pixel)) 100%,
+    var(--pixel) 100%,
+    var(--pixel) calc(100% - var(--pixel)),
+    0 calc(100% - var(--pixel)),
+    0 var(--pixel),
+    var(--pixel) var(--pixel)
+  );
+}

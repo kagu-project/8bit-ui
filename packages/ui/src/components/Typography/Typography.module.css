@@ -1,0 +1,82 @@
+/* Typography.module.css */
+
+/* Shared Color System */
+.primary {
+  color: var(--8bit-primary);
+}
+.secondary {
+  color: var(--8bit-secondary);
+}
+.neutral {
+  color: var(--8bit-neutral);
+}
+.danger {
+  color: var(--8bit-danger);
+}
+
+/* HEADING */
+.heading {
+  font-family: var(--8bit-font-header);
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase; /* Arcade headers are usually uppercase */
+}
+
+.h1 {
+  font-size: 2.5rem;
+}
+.h2 {
+  font-size: 2rem;
+}
+.h3 {
+  font-size: 1.5rem;
+}
+.h4 {
+  font-size: 1.25rem;
+}
+.h5 {
+  font-size: 1rem;
+}
+.h6 {
+  font-size: 0.875rem;
+}
+
+/* Alignment */
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+
+/* TEXT I.E. BODY */
+.text {
+  font-family: var(--8bit-font-body);
+  line-height: normal;
+  margin: 0;
+}
+
+.sm {
+  font-size: 1rem;
+}
+.md {
+  font-size: 1.25rem;
+}
+.lg {
+  font-size: 1.5rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+.normal {
+  font-weight: normal;
+}
+
+/* Optional Mono override logic if needed, though VT323 is inherently mono */
+.mono {
+  letter-spacing: 1px;
+}

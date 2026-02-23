@@ -1,0 +1,89 @@
+/* TextArea.module.css */
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 2px; /* Slight padding for the border effect */
+  background: var(--8bit-border); /* Default border color */
+  font-family: var(--8bit-font-body);
+}
+
+.fullWidth {
+  display: block;
+  width: 100%;
+}
+
+/* VARIANTS */
+.solid {
+  --bg: #fff;
+  --fg: var(--8bit-text);
+}
+
+.ghost {
+  --bg: transparent;
+  --fg: var(--8bit-text);
+  background: transparent;
+}
+
+/* NOTCH STYLES (Composed from utility) */
+.single {
+  composes: notched from '../../theme/utility.module.css';
+}
+
+.none {
+  clip-path: none;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+}
+
+/* INNER FILL (The actual background of the input) */
+.single::before {
+  content: '';
+  position: absolute;
+  top: var(--8bit-pixel-size);
+  left: var(--8bit-pixel-size);
+  right: var(--8bit-pixel-size);
+  bottom: var(--8bit-pixel-size);
+  background: var(--bg);
+  z-index: 0;
+}
+
+/* THE TEXTAREA ITSELF */
+.textarea {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: block;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--fg);
+  outline: none;
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 60px;
+}
+
+/* GHOST VARIANT OVERRIDES */
+.ghost .textarea {
+  border-bottom: calc(var(--8bit-pixel-size) * 1) solid var(--8bit-border);
+  padding-left: 0;
+  padding-right: 0;
+  resize: none; /* Ghost usually doesn't have borders to resize against */
+}
+
+/* STATES */
+.wrapper:focus-within {
+  background: var(--8bit-focus);
+}
+
+.error {
+  background: var(--8bit-danger) !important;
+}
+
+.disabled {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  pointer-events: none;
+}

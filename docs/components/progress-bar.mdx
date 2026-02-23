@@ -1,0 +1,33 @@
+# ProgressBar
+
+Use `ProgressBar` to show task completion or load progress.
+
+## Import
+
+```tsx
+import { ProgressBar } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <ProgressBar value={42} max={100} label="Upload" showValue variant="striped" animated />
+</div>
+
+```tsx
+<ProgressBar value={42} max={100} label="Upload" showValue variant="striped" animated />
+```
+
+## Key Props
+
+- `value`, `max`
+- `color`: preset token or custom color string
+- `variant`: `'solid' | 'striped'`
+- `animated`: animation for striped mode
+- `size`: `'sm' | 'md' | 'lg'`
+- `label`, `showValue`
+
+## Accessibility
+
+- Exposes `role="progressbar"` and `aria-valuenow/min/max`.
+- Pair with clear descriptive labels for context.

@@ -1,0 +1,44 @@
+# FAB
+
+Use `FAB` (floating action button) for high-priority page actions.
+
+## Import
+
+```tsx
+import { FAB } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <FAB aria-label="Create new item" variant="primary" type="solid" shape="round">
+    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+    </svg>
+  </FAB>
+</div>
+
+```tsx
+<FAB
+  aria-label="Create new item"
+  variant="primary"
+  type="solid"
+  shape="round"
+>
+  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+  </svg>
+</FAB>
+```
+
+## Key Props
+
+- `variant`: `'primary' | 'secondary' | 'danger' | 'success'`
+- `type`: `'solid' | 'outline'`
+- `shape`: `'square' | 'round'`
+- Positioning is handled by parent/container CSS (for example: `position: fixed` on the FAB with `bottom/right` offsets)
+
+## Accessibility
+
+- Provide `aria-label` when using icon-only content.
+- Keep one primary FAB per screen in most flows.

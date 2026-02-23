@@ -1,0 +1,37 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.trigger {
+  min-width: unset;
+  min-height: unset;
+  padding: 4px 6px;
+  background: transparent;
+  border: 2px solid transparent;
+  color: inherit;
+  font-family: var(--8bit-font-header);
+  font-size: 0.62rem;
+  line-height: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  background: transparent;
+  border-color: currentColor;
+  box-shadow: none;
+  outline: none;
+  filter: none;
+}
+
+.content {
+  min-width: 192px;
+}
+
+.item {
+  font-size: 1.26rem;
+  line-height: 1.08;
+}

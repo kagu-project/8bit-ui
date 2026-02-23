@@ -1,0 +1,62 @@
+:root {
+  /* Core Colors */
+  --8bit-bg: rgb(236, 236, 223);
+  --8bit-text: #15100b;
+  --8bit-primary: #3b7270;
+  --8bit-secondary: #e07c24;
+  --8bit-success: #76c442;
+  --8bit-warning: #f2c94c;
+  --8bit-danger: #e03e3e;
+  --8bit-neutral: #888888;
+  --8bit-focus: #0044ff; /* Arcade Blue for Focus Ring */
+  --8bit-border: #15100b; /* Changing default border to black/dark for contrast */
+
+  /* Typography */
+  --8bit-font-header: 'Press Start 2P', cursive;
+  --8bit-font-body: 'VT323', monospace;
+
+  /* Spacing & Layout */
+  --8bit-pixel-size: 4px; /* Used for border thickness calculation */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    /* Summercamp Palette (system preference) */
+    --8bit-bg: #1c1810; /* Deep Night Brown */
+    --8bit-text: #f8f5de; /* Parchment / Off-white */
+    --8bit-primary: #d65d0e; /* Ember Orange - Dragon Fire / Campfire */
+    --8bit-secondary: #d79921; /* Gold - Secondary accent */
+    --8bit-success: #5ceb5a; /* Slime Green */
+    --8bit-warning: #fba11b; /* Amber */
+    --8bit-danger: #ff8080; /* Soft Red */
+    --8bit-neutral: #736e55; /* Earth Brown */
+    --8bit-focus: #489bf0; /* Sky Blue */
+    --8bit-border: #504b38; /* Dark Olive Border */
+  }
+}
+
+[data-theme='light'] {
+  --8bit-bg: rgb(236, 236, 223);
+  --8bit-text: #15100b;
+  --8bit-primary: #3b7270;
+  --8bit-secondary: #e07c24;
+  --8bit-success: #76c442;
+  --8bit-warning: #f2c94c;
+  --8bit-danger: #e03e3e;
+  --8bit-neutral: #888888;
+  --8bit-focus: #0044ff;
+  --8bit-border: #15100b;
+}
+
+[data-theme='dark'] {
+  --8bit-bg: #1c1810; /* Deep Night Brown */
+  --8bit-text: #f8f5de; /* Parchment / Off-white */
+  --8bit-primary: #d65d0e; /* Ember Orange - Dragon Fire / Campfire */
+  --8bit-secondary: #d79921; /* Gold - Secondary accent */
+  --8bit-success: #5ceb5a; /* Slime Green */
+  --8bit-warning: #fba11b; /* Amber */
+  --8bit-danger: #ff8080; /* Soft Red */
+  --8bit-neutral: #736e55; /* Earth Brown */
+  --8bit-focus: #489bf0; /* Sky Blue */
+  --8bit-border: #504b38; /* Dark Olive Border */
+}

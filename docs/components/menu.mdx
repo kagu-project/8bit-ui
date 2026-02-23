@@ -1,0 +1,40 @@
+# Menu
+
+Use `Menu` for contextual actions and small command lists.
+
+## Import
+
+```tsx
+import { Menu } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <MenuPreview />
+</div>
+
+```tsx
+<Menu>
+  <Menu.Trigger ariaLabel="Open row actions">⋮</Menu.Trigger>
+  <Menu.Content align="end">
+    <Menu.Item onSelect={() => console.log('view')}>View</Menu.Item>
+    <Menu.Item onSelect={() => console.log('edit')}>Edit</Menu.Item>
+    <Menu.Separator />
+    <Menu.Item danger onSelect={() => console.log('delete')}>
+      Delete
+    </Menu.Item>
+  </Menu.Content>
+</Menu>
+```
+
+## Key Props
+
+- `Menu`: `open`, `defaultOpen`, `onOpenChange`, `closeOnSelect`
+- `Menu.Content`: `side`, `align`, `offset`, `collisionPadding`
+- `Menu.Item`: `danger`, `disabled`, `leftSlot`, `rightSlot`, `onSelect`
+
+## Accessibility
+
+- Trigger supports keyboard open (`Enter`, `Space`, `ArrowDown`).
+- Content handles keyboard navigation and closes on `Escape`.

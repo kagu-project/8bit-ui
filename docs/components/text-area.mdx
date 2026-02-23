@@ -1,0 +1,31 @@
+# TextArea
+
+Use `TextArea` for multi-line text input.
+
+## Import
+
+```tsx
+import { TextArea } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <TextArea placeholder="Write your notes..." rows={5} fullWidth />
+</div>
+
+```tsx
+<TextArea placeholder="Write your notes..." rows={5} fullWidth />
+```
+
+## Key Props
+
+- `variant`: `'solid' | 'ghost'`
+- `error`: error styling state
+- `fullWidth`: expands to container width
+- Plus native `<textarea>` props
+
+## Accessibility
+
+- Pair with a visible `<label>` or `aria-label`.
+- Set `rows` based on expected content length.

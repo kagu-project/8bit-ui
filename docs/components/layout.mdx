@@ -1,0 +1,44 @@
+# Layout
+
+Use `Layout` to compose a sticky header and fixed bottom navigation around page content.
+
+## Import
+
+```tsx
+import { Layout, Header, Toolbar, BottomNav } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <LayoutPreview />
+</div>
+
+```tsx
+<Layout
+  header={
+    <Header variant="primary">
+      <Toolbar>Dashboard</Toolbar>
+    </Header>
+  }
+  bottomNav={
+    <BottomNav>
+      <BottomNav.Item label="Home" active />
+      <BottomNav.Item label="Library" />
+    </BottomNav>
+  }
+>
+  <main>Page content</main>
+</Layout>
+```
+
+## Key Props
+
+- `header`: top region node
+- `bottomNav`: bottom region node
+- `children`: main page content
+
+## Accessibility
+
+- Keep one semantic page `<main>` landmark in content.
+- Ensure bottom navigation items have descriptive labels.

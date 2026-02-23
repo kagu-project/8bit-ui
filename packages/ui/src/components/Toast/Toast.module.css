@@ -1,0 +1,138 @@
+/* Toast.module.css */
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 12px 16px;
+
+  font-family: var(--8bit-font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+
+  background-color: var(--8bit-bg);
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+
+  /* Default Animation: Stepped Slide */
+  animation: slideIn 0.4s steps(5) forwards;
+
+  /* Initial state */
+  transform: translateY(100%);
+  opacity: 0;
+
+  /* Ensure it sits on top */
+  pointer-events: auto;
+}
+
+/* ANIMATION VARIANTS */
+.step {
+  animation: slideIn 0.4s steps(5) forwards;
+}
+
+.smooth {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.pop {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.none {
+  animation: none;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* VARIANTS */
+.info {
+  border-color: var(--8bit-primary);
+  background-color: #fff;
+  color: #000;
+}
+
+.success {
+  border-color: #50c878;
+  background-color: #e8f8f0;
+  color: #004d2e;
+}
+
+.warning {
+  border-color: var(--8bit-secondary);
+  background-color: #fff8e0;
+  color: #5c3a00;
+}
+
+.error {
+  border-color: var(--8bit-danger);
+  background-color: #f8e8e8;
+  color: #5c0000;
+}
+
+/* CLOSE BUTTON */
+.closeBtn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-family: monospace;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0 4px;
+  opacity: 0.6;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+}
+
+/* ANIMATIONS */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.exiting {
+  animation: slideOut 0.3s steps(5) forwards;
+}
+
+/* CONTAINER (For positioning via Portal/Context) */
+.container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 9999;
+  pointer-events: none; /* Let clicks pass through gaps */
+}

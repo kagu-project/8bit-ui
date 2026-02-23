@@ -1,0 +1,80 @@
+.frame {
+  --pixel: var(--8bit-pixel-size);
+
+  composes: notched from '../../theme/utility.module.css';
+
+  position: relative;
+  background: var(--8bit-border);
+  padding: var(--pixel);
+}
+
+.frame::before {
+  content: '';
+  position: absolute;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
+  background: #fff;
+  z-index: 0;
+}
+
+.scrollContainer {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+.headerCell,
+.cell {
+  border-right: var(--pixel) solid var(--8bit-border);
+  border-bottom: var(--pixel) solid var(--8bit-border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.row > .headerCell:last-child,
+.row > .cell:last-child {
+  border-right: none;
+}
+
+.body > .row:last-child > .cell,
+.footer > .row:last-child > .cell {
+  border-bottom: none;
+}
+
+.footer > .row:first-child > .cell {
+  border-top: var(--pixel) solid var(--8bit-border);
+}
+
+.headerCell {
+  background: var(--8bit-primary);
+  color: #fff;
+  font-family: var(--8bit-font-header);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.body > .row:nth-child(even) {
+  background: rgba(21, 16, 11, 0.04);
+}
+
+.body > .row:hover {
+  background: rgba(59, 114, 112, 0.1);
+}
+
+@media (max-width: 640px) {
+  .table {
+    min-width: 560px;
+  }
+}

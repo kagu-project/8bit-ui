@@ -1,0 +1,72 @@
+/* Checkbox.module.css */
+
+.checkmark {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Pixelated rendering */
+  image-rendering: pixelated;
+}
+
+/* Hover effect */
+/* Hover effect (only when unchecked) */
+label:hover input:not(:checked) ~ .checkmark {
+  background-color: #f0f0f0;
+}
+
+/* Checked + mixed states */
+input:checked ~ .checkmark,
+input:indeterminate ~ .checkmark {
+  background-color: var(--8bit-primary);
+  border-color: var(--8bit-border);
+}
+
+/* Focus State */
+input:focus-visible ~ .checkmark {
+  box-shadow: 0 0 0 var(--8bit-pixel-size) var(--8bit-focus);
+}
+
+/* The "X" Icon */
+.icon {
+  display: none;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+
+  /* Pixel X shape */
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
+}
+
+.mixedIcon {
+  display: none;
+  width: 10px;
+  height: 3px;
+  background-color: #fff;
+}
+
+input:checked ~ .checkmark .icon {
+  display: block;
+}
+
+input:indeterminate ~ .checkmark .mixedIcon {
+  display: block;
+}

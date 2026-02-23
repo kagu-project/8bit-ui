@@ -1,0 +1,41 @@
+name: Semgrep Scan
+
+on:
+  pull_request:
+  schedule:
+    - cron: '11 15 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: .github/requirements/semgrep.txt
+
+      - name: Install Semgrep CE
+        run: |
+          python -m pip install -r .github/requirements/semgrep.txt
+
+      - name: Run Semgrep (error severity gate)
+        run: |
+          semgrep scan \
+            --config=p/security-audit \
+            --severity=ERROR \
+            --error \
+            --metrics=off \
+            --exclude=node_modules \
+            --exclude=dist \
+            --exclude=storybook-static

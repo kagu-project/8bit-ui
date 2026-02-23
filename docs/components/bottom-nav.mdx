@@ -1,0 +1,61 @@
+# BottomNav
+
+Use `BottomNav` for mobile-first primary navigation and quick actions.
+
+## Import
+
+```tsx
+import { BottomNav } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <BottomNavPreview />
+</div>
+
+```tsx
+<BottomNav variant="floating">
+  <BottomNav.Item label="Home" active />
+  <BottomNav.Item label="Files" />
+  <BottomNav.Action icon="+" aria-label="Create new" />
+</BottomNav>
+```
+
+## Key Props
+
+- `BottomNav.variant`: `'standard' | 'floating'`
+- `BottomNav.Item`: `icon`, `label`, `active`, button props
+- `BottomNav.Action`: action slot with icon-only affordance
+- Positioning is controlled by layout/container styles (for example a fixed wrapper at the page bottom)
+
+## Fixed Position Pattern
+
+<div className="preview">
+  <BottomNavFixedPatternPreview />
+</div>
+
+```tsx
+<div className="bottomNavFixed">
+  <BottomNav variant="standard">
+    <BottomNav.Item label="Home" active />
+    <BottomNav.Item label="Files" />
+    <BottomNav.Action icon="+" aria-label="Create new" />
+  </BottomNav>
+</div>
+```
+
+```css
+.bottomNavFixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+}
+```
+
+## Accessibility
+
+- Renders semantic `<nav>`.
+- Provide `aria-label` for icon-only actions.

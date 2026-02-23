@@ -1,0 +1,34 @@
+# Pagination
+
+Use `Pagination` for numbered page navigation.
+
+## Import
+
+```tsx
+import { Pagination } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Pagination currentPage={3} totalPages={20} />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [page, setPage] = useState(1);
+
+<Pagination currentPage={page} totalPages={20} onPageChange={setPage} />;
+```
+
+## Key Props
+
+- `currentPage`: active page number (1-indexed)
+- `totalPages`: total available pages
+- `onPageChange`: callback when user navigates
+
+## Accessibility
+
+- Includes labeled previous/next controls.
+- Keep pagination close to the content it controls.

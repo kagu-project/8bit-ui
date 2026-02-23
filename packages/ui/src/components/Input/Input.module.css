@@ -1,0 +1,110 @@
+/* Input.module.css */
+
+/* The Wrapper handles the Shape, Border, and Background */
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  min-width: 200px;
+
+  /* Defaults */
+  --bg: #fff;
+  --bd: var(--8bit-border);
+  --fg: var(--8bit-text);
+
+  background: var(--bd); /* The outer border color */
+  color: var(--fg);
+  font-family: var(--8bit-font-body);
+
+  cursor: text;
+}
+
+.fullWidth {
+  width: 100%;
+  display: flex;
+}
+
+/* NOTCH STYLES */
+.single {
+  composes: notched from '../../theme/utility.module.css';
+  padding: calc(var(--pixel) * 2); /* 8px border thickness simulation */
+}
+
+.none {
+  clip-path: none;
+  border: var(--pixel) solid var(--bd);
+}
+
+/* THE INNER BACKGROUND */
+.single::before {
+  content: '';
+  position: absolute;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
+  background: var(--bg);
+  z-index: 0;
+}
+
+/* THE ACTUAL INPUT */
+.input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 8px 12px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  line-height: normal;
+}
+
+/* Placeholder */
+.input::placeholder {
+  color: var(--8bit-neutral);
+  opacity: 0.7;
+}
+
+/* VARIANTS */
+.solid {
+  --bg: #fff;
+}
+.ghost {
+  --bg: rgba(0, 0, 0, 0.05); /* Slight tint? */
+}
+
+/* STATES */
+
+/* Focus (on Wrapper) */
+/* Focus (on Wrapper) */
+.wrapper:focus-within {
+  filter: drop-shadow(0 0 4px var(--8bit-primary));
+  background: var(--8bit-primary);
+  z-index: 10;
+}
+
+/* Error */
+.error {
+  background: var(--8bit-danger);
+  color: var(--8bit-danger);
+}
+.error:focus-within {
+  filter: drop-shadow(0 0 4px var(--8bit-danger));
+}
+.error .input {
+  color: var(--8bit-text);
+}
+
+/* Disabled */
+.disabled {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.disabled .input {
+  cursor: not-allowed;
+}

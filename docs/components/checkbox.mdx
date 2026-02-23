@@ -1,0 +1,42 @@
+# Checkbox
+
+Use `Checkbox` for boolean choices and multi-selection lists.
+
+## Import
+
+```tsx
+import { Checkbox } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview previewStack">
+  <Checkbox label="Enable scanlines" />
+  <Checkbox label="Enable CRT bloom" defaultChecked />
+  <Checkbox label="Parent selection (indeterminate)" indeterminate />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [checked, setChecked] = useState(false);
+
+<Checkbox
+  label="Enable scanlines"
+  checked={checked}
+  onChange={(event) => setChecked(event.target.checked)}
+/>;
+```
+
+## Key Props
+
+- `label`: optional label content
+- `checked`: controlled checked state
+- `indeterminate`: mixed visual state
+- `disabled`
+- Plus native checkbox input props
+
+## Accessibility
+
+- Wrapped in a `<label>`, so label text is click/tap accessible.
+- Use `indeterminate` only for parent/partial selection patterns.

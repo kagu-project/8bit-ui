@@ -1,0 +1,204 @@
+/* FAB.module.css */
+.fab {
+  --pixel: var(--8bit-pixel-size, 4px); /* Default to 4px if global not set */
+
+  /* Defaults */
+  --bg: var(--8bit-bg);
+  --bd: #000;
+  --fg: #fff;
+
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  border: none;
+  font-family: var(--8bit-font-body);
+  font-size: 24px;
+
+  /* BORDER STYLING based on --bd variable */
+  background-color: var(--bd);
+  color: var(--fg); /* Icon color */
+
+  /* NO INSET SHADOWS - Flat Colors Only */
+  box-shadow: none;
+  /* Hard Drop Shadow */
+  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.5));
+
+  transition: transform 0.1s;
+}
+
+/* THE INNER FILL (Color) */
+.fab::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background-color: var(--bg);
+  /* Use the same clip-path shape as parent, or simpler shape if it fits */
+  /* For square notch, a simple square fill fits inside perfectly */
+  /* For round, re-applying clip-path works mostly, or slight adjustment */
+  clip-path: inherit;
+  z-index: -1; /* Behind content */
+}
+
+/* Ensure content sits on top */
+.fab > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fab:active {
+  transform: translate(2px, 2px);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+}
+
+/* SHAPES */
+
+/* Square (Single Notch) */
+.square {
+  composes: notched from '../../theme/utility.module.css';
+  border-radius: 0;
+  clip-path: none;
+}
+.square::before {
+  clip-path: none;
+  border-radius: 0;
+}
+
+/* Round */
+.round {
+  /* 
+     We need a specific pixelated circle shape. 
+     56px width. 
+     Let's define the outer black shape first.
+  */
+  clip-path: polygon(
+    20px 0,
+    36px 0,
+    36px 4px,
+    44px 4px,
+    44px 8px,
+    48px 8px,
+    48px 12px,
+    52px 12px,
+    52px 20px,
+    56px 20px,
+    56px 36px,
+    52px 36px,
+    52px 44px,
+    48px 44px,
+    48px 48px,
+    44px 48px,
+    44px 52px,
+    36px 52px,
+    36px 56px,
+    20px 56px,
+    20px 52px,
+    12px 52px,
+    12px 48px,
+    8px 48px,
+    8px 44px,
+    4px 44px,
+    4px 36px,
+    0px 36px,
+    0px 20px,
+    4px 20px,
+    4px 12px,
+    8px 12px,
+    8px 8px,
+    12px 8px,
+    12px 4px,
+    20px 4px
+  );
+}
+
+/* Round Inner Fill */
+.round::before {
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  /* Specific inner shape for round to match border thickness */
+  clip-path: polygon(
+    16px 0,
+    32px 0,
+    32px 4px,
+    40px 4px,
+    40px 8px,
+    44px 8px,
+    44px 16px,
+    48px 16px,
+    48px 32px,
+    44px 32px,
+    44px 40px,
+    40px 40px,
+    40px 44px,
+    32px 44px,
+    32px 48px,
+    16px 48px,
+    16px 44px,
+    8px 44px,
+    8px 40px,
+    4px 40px,
+    4px 32px,
+    0px 32px,
+    0px 16px,
+    4px 16px,
+    4px 8px,
+    8px 8px,
+    8px 4px,
+    16px 4px
+  );
+}
+
+/* VARIANTS */
+
+/* Solid: Colored Inner, Black Border, White/Inverse Text */
+.solid.primary {
+  --bg: var(--8bit-primary);
+  --bd: #000;
+  --fg: var(--8bit-text-inverse);
+}
+.solid.secondary {
+  --bg: var(--8bit-secondary);
+  --bd: #000;
+  --fg: var(--8bit-text-inverse);
+}
+.solid.danger {
+  --bg: var(--8bit-error);
+  --bd: #000;
+  --fg: #fff;
+}
+.solid.success {
+  --bg: var(--8bit-success);
+  --bd: #000;
+  --fg: #fff;
+}
+
+/* 
+   Outline: 
+   Colored Border, "Page" Inner to simulate transparency.
+*/
+.outline {
+  --bg: var(--8bit-bg); /* Match page background to simulate transparency */
+  --fg: var(--btn-color);
+  --bd: var(--btn-color);
+}
+.outline.primary {
+  --btn-color: var(--8bit-primary);
+}
+.outline.secondary {
+  --btn-color: var(--8bit-secondary);
+}
+.outline.danger {
+  --btn-color: var(--8bit-error);
+}
+.outline.success {
+  --btn-color: var(--8bit-success);
+}

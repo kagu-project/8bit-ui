@@ -1,0 +1,435 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--8bit-font-body);
+  color: var(--8bit-text);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filterWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterLabel {
+  font-family: var(--8bit-font-header);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.filterInput {
+  min-width: 240px;
+  width: 320px;
+}
+
+.columnFilterRow {
+  background: #fff;
+}
+
+.columnFilterCell {
+  background: #fff;
+  padding: 8px 10px;
+}
+
+.columnFilterInput {
+  min-width: 140px;
+  width: 100%;
+}
+
+.columnFilterMenuTrigger {
+  composes: notched from '../../theme/utility.module.css';
+
+  position: relative;
+  width: 100%;
+  min-height: 52px;
+  border: none;
+  background: var(--8bit-border);
+  color: var(--8bit-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  font-family: var(--8bit-font-header);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.columnFilterMenuTrigger::before {
+  content: '';
+  position: absolute;
+  top: var(--8bit-pixel-size);
+  left: var(--8bit-pixel-size);
+  right: var(--8bit-pixel-size);
+  bottom: var(--8bit-pixel-size);
+  background: #fff;
+  z-index: 0;
+  clip-path: polygon(
+    var(--8bit-pixel-size) 0,
+    calc(100% - var(--8bit-pixel-size)) 0,
+    calc(100% - var(--8bit-pixel-size)) var(--8bit-pixel-size),
+    100% var(--8bit-pixel-size),
+    100% calc(100% - var(--8bit-pixel-size)),
+    calc(100% - var(--8bit-pixel-size)) calc(100% - var(--8bit-pixel-size)),
+    calc(100% - var(--8bit-pixel-size)) 100%,
+    var(--8bit-pixel-size) 100%,
+    var(--8bit-pixel-size) calc(100% - var(--8bit-pixel-size)),
+    0 calc(100% - var(--8bit-pixel-size)),
+    0 var(--8bit-pixel-size),
+    var(--8bit-pixel-size) var(--8bit-pixel-size)
+  );
+}
+
+.columnFilterMenuTrigger > * {
+  position: relative;
+  z-index: 1;
+}
+
+.columnFilterMenuTrigger:hover {
+  filter: brightness(1.04);
+}
+
+.columnFilterMenuTrigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--8bit-focus);
+}
+
+.columnFilterMenuLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.columnFilterMenuIcon {
+  line-height: 1;
+  font-size: 0.75em;
+}
+
+.statusText {
+  font-family: var(--8bit-font-header);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--8bit-primary);
+}
+
+.sortableHeader {
+  padding: 0;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.headerLabel {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sortButton {
+  border: 0;
+  flex: 1;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  font: inherit;
+  text-transform: inherit;
+}
+
+.sortButton:focus-visible {
+  outline: 2px solid var(--8bit-focus);
+  outline-offset: 1px;
+}
+
+.sortIcon {
+  display: inline-flex;
+  width: 12px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sortIconAsc {
+  transform: rotate(180deg);
+}
+
+.sortIconDesc {
+  transform: none;
+}
+
+.sortIconNone {
+  opacity: 0.7;
+}
+
+.filterMenuTrigger {
+  min-width: 18px;
+  min-height: 24px;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: currentColor;
+  box-shadow: none;
+}
+
+.filterMenuTrigger:hover {
+  filter: none;
+  background: transparent;
+}
+
+.filterMenuTriggerActive {
+  color: #fff;
+}
+
+.kebabIcon {
+  display: inline-grid;
+  gap: 2px;
+  align-items: center;
+  justify-items: center;
+}
+
+.kebabDot {
+  width: 3px;
+  height: 3px;
+  background: currentColor;
+}
+
+.filterMenuContent {
+  min-width: 220px !important;
+}
+
+.filterMenuBody {
+  display: grid;
+  gap: 8px;
+  padding: 6px;
+}
+
+.filterMenuOptions {
+  display: grid;
+}
+
+.filterMenuOption {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  padding: 10px 12px;
+}
+
+.filterMenuOptionSingle {
+  position: relative;
+  padding-left: 22px;
+}
+
+.filterMenuOptionSingle::before {
+  content: '▸';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.filterMenuOptionSingle:hover::before,
+.filterMenuOptionSingle:focus-visible::before,
+.filterMenuOptionSelected::before {
+  opacity: 1;
+}
+
+.filterMenuOptionSelected {
+  background: var(--8bit-primary);
+  color: #fff;
+}
+
+.multiSelectIndicator {
+  width: 20px;
+  height: 20px;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.multiSelectIndicatorChecked {
+  background: var(--8bit-primary);
+}
+
+.multiSelectIndicatorMark {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
+}
+
+.selectionHeaderCell {
+  width: 52px;
+  text-align: center;
+  line-height: 0;
+}
+
+.selectionCell {
+  width: 52px;
+  text-align: center;
+  line-height: 0;
+}
+
+.selectionCheckbox {
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.selectedRow {
+  background: rgba(59, 114, 112, 0.18) !important;
+}
+
+.stateCell {
+  padding: 24px 12px;
+  text-align: center;
+  font-family: var(--8bit-font-header);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  background: #fff;
+}
+
+.errorRow .stateCell {
+  color: var(--8bit-danger);
+}
+
+.retryButton {
+  margin-left: 8px;
+  padding: 8px 10px;
+  font-size: 0.58rem;
+}
+
+.skeletonCell {
+  display: block;
+  width: 100%;
+  height: 14px;
+  background: linear-gradient(90deg, #e5e5e5 0%, #f4f4f4 50%, #e5e5e5 100%);
+  background-size: 220% 100%;
+  animation: pulse 1.2s steps(6, end) infinite;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pageInfo {
+  font-family: var(--8bit-font-header);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pageSizeControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageSizeLabel {
+  font-family: var(--8bit-font-header);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+}
+
+.pageSizeSelect {
+  min-width: 96px;
+  width: 96px;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pageButton {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 8px 10px;
+  font-size: 0.58rem;
+}
+
+.ellipsis {
+  font-family: var(--8bit-font-header);
+  font-size: 0.6rem;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .filterWrap {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .filterInput {
+    width: 100%;
+  }
+
+  .columnFilterInput {
+    min-width: 120px;
+  }
+
+  .paginationControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

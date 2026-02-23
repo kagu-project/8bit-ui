@@ -1,0 +1,43 @@
+# Form
+
+Use `Form` as a typed wrapper around the native `<form>` element.
+
+## Import
+
+```tsx
+import { Form, Input, Button } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Form className="formRow">
+    <Input name="email" type="email" placeholder="Email" />
+    <Button type="submit">Submit</Button>
+  </Form>
+</div>
+
+```tsx
+<Form className="formRow">
+  <Input name="email" type="email" placeholder="Email" />
+  <Button type="submit">Submit</Button>
+</Form>
+```
+
+```css
+.formRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+```
+
+## Key Props
+
+- `Form` supports all native `<form>` props.
+
+## Accessibility
+
+- Use labels and correct input `name` fields.
+- Keep submit actions keyboard reachable with `type="submit"` buttons.

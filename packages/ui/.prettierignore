@@ -1,0 +1,6 @@
+dist
+storybook-static
+coverage
+node_modules
+.pnpm-store
+.consumer-*

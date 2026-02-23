@@ -1,0 +1,51 @@
+# Table
+
+Use `Table` primitives for custom table layouts and semantics.
+
+## Table vs DataTable
+
+- Use `Table` when you control data rendering and interactions yourself.
+- Use [`DataTable`](./data-table.mdx) when you want built-in sorting, filtering, pagination, and selection.
+
+## Import
+
+```tsx
+import { Table } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <TablePreview />
+</div>
+
+```tsx
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell scope="col">Item</Table.HeaderCell>
+      <Table.HeaderCell scope="col">Qty</Table.HeaderCell>
+      <Table.HeaderCell scope="col">Price</Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Pixel Potion</Table.Cell>
+      <Table.Cell>2</Table.Cell>
+      <Table.Cell>$10</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
+
+## Key Props
+
+- Root `Table` supports frame and internal table customization:
+- `tableClassName`, `tableStyle`, `tableProps`, `scrollClassName`
+- Section primitives: `Table.Header`, `Table.Body`, `Table.Footer`, `Table.Row`, `Table.HeaderCell`, `Table.Cell`
+
+## Accessibility
+
+- Use proper scopes (`scope="col"` / `scope="row"`) for header cells.
+- Keep table structure semantic (`thead`, `tbody`, `tfoot`) for screen readers.

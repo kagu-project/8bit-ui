@@ -1,0 +1,155 @@
+/* Tag.module.css */
+.tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--8bit-font-header);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  /* Padding creates space for the content inside the notch */
+  padding: 6px 10px;
+
+  white-space: nowrap;
+  vertical-align: middle;
+
+  /* Reset border since we use shape */
+  border: none;
+  background: transparent;
+  z-index: 0;
+
+  /* Defaults */
+  --bg: var(--8bit-neutral);
+  --bd: #000;
+  --fg: #fff;
+}
+
+/* THE SHAPE (Border) */
+.shape {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bd);
+  pointer-events: none;
+}
+
+/* THE INNER FILL */
+.shape::before {
+  content: '';
+  position: absolute;
+  top: var(--8bit-pixel-size);
+  left: var(--8bit-pixel-size);
+  right: var(--8bit-pixel-size);
+  bottom: var(--8bit-pixel-size);
+  background: var(--bg);
+  z-index: -1;
+}
+
+/* NOTCHES */
+/* NOTCHES */
+.single {
+  --pixel: var(--8bit-pixel-size);
+  clip-path: polygon(
+    var(--pixel) 0,
+    calc(100% - var(--pixel)) 0,
+    calc(100% - var(--pixel)) var(--pixel),
+    100% var(--pixel),
+    100% calc(100% - var(--pixel)),
+    calc(100% - var(--pixel)) calc(100% - var(--pixel)),
+    calc(100% - var(--pixel)) 100%,
+    var(--pixel) 100%,
+    var(--pixel) calc(100% - var(--pixel)),
+    0 calc(100% - var(--pixel)),
+    0 var(--pixel),
+    var(--pixel) var(--pixel)
+  );
+}
+
+/* CONTENT */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.2;
+}
+
+/* ICON */
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+/* VARIANTS */
+
+/* VARIANTS AND COLORS */
+
+/* 1. CONFIGURATION: Color Classes define the base palette */
+.neutral {
+  --base-color: var(--8bit-neutral);
+  --contrast: #fff;
+  --bd-color: #000;
+}
+.primary {
+  --base-color: var(--8bit-primary);
+  --contrast: #fff;
+  --bd-color: #000;
+}
+.secondary {
+  --base-color: var(--8bit-secondary);
+  --contrast: #fff;
+  --bd-color: #000;
+}
+.success {
+  --base-color: var(--8bit-success);
+  --contrast: #fff;
+  --bd-color: #000;
+}
+/* Warning uses black text on solid */
+.warning {
+  --base-color: var(--8bit-warning);
+  --contrast: #000;
+  --bd-color: #000;
+}
+.danger {
+  --base-color: var(--8bit-danger);
+  --contrast: #fff;
+  --bd-color: #000;
+}
+
+/* 2. CONSUMPTION: Variants map the palette to actual properties */
+
+/* SOLID */
+.solid {
+  --bg: var(--base-color);
+  --bd: var(--bd-color);
+  --fg: var(--contrast);
+}
+
+/* OUTLINE */
+.outline {
+  --bg: var(--8bit-bg);
+  --bd: var(--base-color);
+  --fg: var(--base-color);
+}
+
+/* SIZES */
+.sm {
+  font-size: 0.56rem;
+  letter-spacing: 0.25px;
+  padding: 4px 7px;
+}
+.md {
+  font-size: 0.7rem;
+  padding: 5px 10px;
+}
+.lg {
+  font-size: 0.82rem;
+  padding: 7px 14px;
+}

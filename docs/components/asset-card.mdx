@@ -1,0 +1,41 @@
+# AssetCard
+
+Use `AssetCard` for media/file tiles with optional selection and actions.
+
+## Import
+
+```tsx
+import { AssetCard } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <AssetCard
+    src="https://placehold.co/320x180/111/fff?text=ITEM"
+    title="Hero Portrait"
+    subtitle="PNG · 240 KB"
+  />
+</div>
+
+```tsx
+<AssetCard
+  src="/images/item.png"
+  title="Hero Portrait"
+  subtitle="PNG · 240 KB"
+  actions={<button type="button">...</button>}
+/>
+```
+
+## Key Props
+
+- `layout`: `'vertical' | 'horizontal'`
+- `src`, `title`, `subtitle`
+- `selected`, `onSelect` for selectable cards
+- `onDrop`, `accept` for drag-and-drop uploads
+- `actions`: action slot content
+
+## Accessibility
+
+- Provide meaningful `title` to improve image alt fallback text.
+- Ensure `actions` controls are keyboard reachable and labeled.

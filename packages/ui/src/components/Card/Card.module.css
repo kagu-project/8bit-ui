@@ -1,0 +1,81 @@
+/* Card.module.css */
+.card {
+  position: relative;
+  padding: 16px;
+
+  /* Defaults */
+  --bg: var(--8bit-bg);
+  --bd: var(--8bit-border);
+  --fg: var(--8bit-text);
+
+  color: var(--fg);
+  font-family: var(--8bit-font-body);
+
+  /* Geometry */
+  background: var(--bd); /* The "Border" color provides the outer shape */
+}
+
+/* VARIANTS */
+/* Solid: Filled background */
+.solid {
+  /* Inherits defaults */
+}
+/* Outline: "See through" (mostly for specific interactive cards, rare in standard containers)
+   But for consistency: background becomes transparent, we rely on the border. */
+.outline {
+  --bg: transparent;
+}
+
+/* NOTCH STYLES */
+.single {
+  composes: notched from '../../theme/utility.module.css';
+  padding: calc(var(--pixel) * 4); /* 16px to match standard padding */
+}
+
+/* THE INNER FILL (The actual "Card" surface) */
+/* Only applies if notched classes are present. 
+   We target ::before to be the background layer. */
+.single::before {
+  content: '';
+  position: absolute;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
+  background: var(--bg);
+  z-index: 0; /* Behind content */
+}
+/* Ensure content sits on top */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER / TITLE BAR */
+.header {
+  border-bottom: var(--pixel) solid var(--bd);
+
+  /* Negative margin must match the card padding (16px / 4 pixels) to flush with edges */
+  margin: calc(var(--pixel) * -4) calc(var(--pixel) * -4) calc(var(--pixel) * 4)
+    calc(var(--pixel) * -4);
+
+  /* Optical Alignment for Pixel Font */
+  padding: 16px 16px 12px 16px;
+  background: rgba(0, 0, 0, 0.05);
+
+  font-family: var(--8bit-font-header);
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: normal;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Legacy/Standard Square Support (notch='none') */
+.none {
+  border: var(--pixel) solid var(--bd);
+  background: var(--bg);
+  box-shadow: var(--pixel) var(--pixel) 0 0 rgba(0, 0, 0, 0.1);
+}

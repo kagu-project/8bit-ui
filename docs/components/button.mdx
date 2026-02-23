@@ -1,0 +1,56 @@
+# Button
+
+Use `Button` for user-triggered actions.
+
+## Import
+
+```tsx
+import { Button } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Button variant="solid" color="primary">Save</Button>
+</div>
+
+```tsx
+<Button variant="solid" color="primary">
+  Save
+</Button>
+```
+
+## Button Styles
+
+<div className="preview">
+  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+    <Button variant="solid" color="primary">Solid</Button>
+    <Button variant="outline" color="primary">Outline</Button>
+    <Button variant="link" color="primary">Link</Button>
+  </div>
+</div>
+
+```tsx
+<>
+  <Button variant="solid" color="primary">
+    Solid
+  </Button>
+  <Button variant="outline" color="primary">
+    Outline
+  </Button>
+  <Button variant="link" color="primary">
+    Link
+  </Button>
+</>
+```
+
+## Key Props
+
+- `variant`: `'solid' | 'outline' | 'link'`
+- `color`: `'primary' | 'secondary' | 'danger' | 'neutral'`
+- Plus all native `<button>` props
+
+## Accessibility
+
+- `Button` renders a native `<button>` element.
+- Always provide clear text or `aria-label` for icon-only buttons.

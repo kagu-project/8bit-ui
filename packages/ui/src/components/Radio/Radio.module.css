@@ -1,0 +1,35 @@
+/* Radio.module.css */
+
+.radio {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect */
+/* Hover effect (only when unchecked) */
+label:hover input:not(:checked) ~ .radio {
+  background-color: #f0f0f0;
+}
+
+/* Checked state */
+.checked {
+  background-color: var(--8bit-bg);
+}
+
+/* Focus State */
+input:focus-visible ~ .radio {
+  box-shadow: 0 0 0 var(--8bit-pixel-size) var(--8bit-focus);
+}
+
+/* The Dot Icon - A square in the middle */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--8bit-primary);
+}

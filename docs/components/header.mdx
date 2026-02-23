@@ -1,0 +1,42 @@
+# Header
+
+Use `Header` and `Toolbar` for top-of-page app chrome.
+
+## Import
+
+```tsx
+import { Header, Toolbar } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Header variant="primary" elevation={2}>
+    <Toolbar>
+      <strong>8bit UI</strong>
+    </Toolbar>
+  </Header>
+</div>
+
+```tsx
+<Header fixed variant="primary" elevation={2}>
+  <Toolbar>
+    <strong>8bit UI</strong>
+  </Toolbar>
+</Header>
+```
+
+## Key Props
+
+- `Header`
+- `fixed`: sticky top behavior
+- `variant`: `'default' | 'primary' | 'secondary' | 'transparent'`
+- `elevation`: shadow depth class
+- `Toolbar`
+- `dense`: compact toolbar spacing
+- `disableGutters`: remove default horizontal spacing
+
+## Accessibility
+
+- `Header` renders semantic `<header>`.
+- Keep interactive children keyboard accessible (buttons/links).

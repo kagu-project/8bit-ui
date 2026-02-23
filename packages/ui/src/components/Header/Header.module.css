@@ -1,0 +1,39 @@
+.header {
+  width: 100%;
+  background-color: var(--8bit-bg);
+  border-bottom: var(--8bit-pixel-size) solid var(--8bit-border);
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.static {
+  position: static;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--8bit-primary);
+  color: #fff;
+}
+
+.secondary {
+  background-color: var(--8bit-secondary);
+}
+
+.transparent {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+/* Elevation (Shadows) - 8-bit style */
+.elevation1 {
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}

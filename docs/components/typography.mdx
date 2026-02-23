@@ -1,0 +1,37 @@
+# Typography
+
+Use `Heading` and `Text` for consistent heading and body text styles.
+
+## Import
+
+```tsx
+import { Heading, Text } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview previewStack">
+  <Heading level={2} variant="primary">
+    Mission Brief
+  </Heading>
+
+  <Text size="md">Meet the guild master at sunrise.</Text>
+</div>
+
+```tsx
+<Heading level={2} variant="primary">
+  Mission Brief
+</Heading>
+
+<Text size="md">Meet the guild master at sunrise.</Text>
+```
+
+## Key Props
+
+- `Heading`: `level`, `variant`, `align`
+- `Text`: `as`, `size`, `weight`, `variant`, `mono`
+
+## Accessibility
+
+- Use heading levels in hierarchical order.
+- Use semantic `as` values for text where needed (`p`, `span`, etc.).

@@ -1,0 +1,42 @@
+.header {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.cell {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.trigger {
+  min-width: 18px;
+  min-height: 24px;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: var(--8bit-text);
+  box-shadow: none;
+}
+
+.trigger:hover {
+  filter: none;
+  background: transparent;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--8bit-focus);
+  outline-offset: 1px;
+}
+
+.icon {
+  display: inline-grid;
+  gap: 2px;
+  align-items: center;
+  justify-items: center;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  background: currentColor;
+}

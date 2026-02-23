@@ -1,0 +1,190 @@
+/* Select.module.css */
+.container {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+  font-family: var(--8bit-font-body);
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
+}
+
+/* TRIGGER (The box you click) */
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--8bit-select-trigger-padding-y, 12px) var(--8bit-select-trigger-padding-x, 16px);
+  min-height: var(--8bit-select-trigger-min-height, 0);
+  cursor: pointer;
+  user-select: none;
+
+  /* Inherit fonts */
+  font-family: var(--8bit-font-header);
+  font-size: var(--8bit-select-font-size, 1rem);
+  text-transform: uppercase;
+
+  /* Defaults */
+  --bg: #fff;
+  --bd: var(--8bit-border);
+  --fg: var(--8bit-text);
+
+  background: var(--bd); /* Border color */
+  color: var(--fg);
+
+  transition:
+    transform 0.1s,
+    filter 0.1s;
+}
+
+/* Hover State */
+/* Hover State */
+.trigger:hover {
+  filter: drop-shadow(
+      calc(var(--8bit-pixel-size) * 2) calc(var(--8bit-pixel-size) * 2) 0 rgba(0, 0, 0, 0.4)
+    )
+    brightness(1.1);
+}
+
+/* Focus State */
+.trigger:focus-visible {
+  outline: none;
+  background: var(--8bit-focus); /* Change border color */
+  filter: drop-shadow(0 0 6px var(--8bit-focus))
+    drop-shadow(
+      calc(var(--8bit-pixel-size) * 2) calc(var(--8bit-pixel-size) * 2) 0 rgba(0, 0, 0, 0.4)
+    );
+  z-index: 10;
+}
+
+/* NOTCH STYLES FOR TRIGGER */
+.single {
+  composes: notched from '../../theme/utility.module.css';
+}
+
+.none {
+  clip-path: none;
+}
+
+/* INNER FILL FOR TRIGGER */
+.single::before {
+  content: '';
+  position: absolute;
+  top: var(--8bit-pixel-size);
+  left: var(--8bit-pixel-size);
+  right: var(--8bit-pixel-size);
+  bottom: var(--8bit-pixel-size);
+  background: var(--bg);
+  z-index: 0;
+}
+
+/* CONTENT ON TOP */
+.label,
+.icon {
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  margin-left: 12px;
+  font-size: 0.8em;
+  transition: transform 0.2s;
+}
+
+.open .icon {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background: var(--8bit-border);
+  padding: var(--8bit-pixel-size);
+
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+
+  /* Force text color to be dark since background is always light */
+  color: var(--8bit-text);
+  text-align: left;
+}
+
+.dropdownNotched {
+  composes: notched from '../../theme/utility.module.css';
+}
+
+.dropdownNotched::before {
+  content: '';
+  position: absolute;
+  top: var(--8bit-pixel-size);
+  left: var(--8bit-pixel-size);
+  right: var(--8bit-pixel-size);
+  bottom: var(--8bit-pixel-size);
+  background: var(--8bit-bg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dropdownInner {
+  position: relative;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* OPTIONS */
+.option {
+  padding: 12px 16px;
+  font-family: var(--8bit-font-header);
+  font-size: var(--8bit-select-option-font-size, var(--8bit-select-font-size, 1rem));
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: var(--8bit-primary);
+  color: #fff;
+}
+
+.selected {
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+}
+
+/* VARIANTS */
+.solid {
+  --bg: var(--8bit-primary);
+  --fg: #fff;
+  --bd: var(--8bit-border);
+}
+
+.outline {
+  --bg: #fff;
+  --fg: var(--8bit-text);
+  --bd: var(--8bit-border);
+}
+
+.ghost {
+  --bg: transparent;
+  --bd: transparent;
+  --fg: var(--8bit-text);
+}
+
+/* DISABLED */
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+.placeholder {
+  opacity: 0.6;
+}

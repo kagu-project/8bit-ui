@@ -1,0 +1,39 @@
+# Toast
+
+Use `ToastProvider` and `useToast` to trigger transient notifications.
+
+## Import
+
+```tsx
+import { ToastProvider, useToast, Button } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <ToastPreview />
+</div>
+
+```tsx
+const Example = () => {
+  const toast = useToast();
+
+  return <Button onClick={() => toast.success('Saved!')}>Show Toast</Button>;
+};
+
+const App = () => (
+  <ToastProvider>
+    <Example />
+  </ToastProvider>
+);
+```
+
+## API
+
+- `useToast()`: returns `info`, `success`, `warning`, `error`, `add`, `remove`
+- `ToastProvider`: context provider + toast rendering container
+
+## Accessibility
+
+- Toast items render with `role="alert"` for announcement.
+- Keep toast message text short and action-oriented.

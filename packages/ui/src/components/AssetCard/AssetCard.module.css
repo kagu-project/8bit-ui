@@ -1,0 +1,165 @@
+/* AssetCard.module.css */
+.card {
+  --pixel: var(--8bit-pixel-size, 4px);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 4px solid #000;
+  overflow: hidden;
+  transition: transform 0.1s;
+}
+
+.single {
+  composes: notched from '../../theme/utility.module.css';
+  border: none;
+  background: #000;
+  padding: var(--pixel);
+}
+
+.single::before {
+  content: '';
+  position: absolute;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
+  background: #fff;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.single > * {
+  position: relative;
+  z-index: 1;
+}
+
+.none {
+  clip-path: none;
+  border: 4px solid #000;
+  background: #fff;
+  padding: 0;
+}
+
+/* Selection State */
+.selected {
+  outline: 4px solid var(--8bit-primary, #00f);
+  outline-offset: -4px;
+}
+
+/* Layout: Vertical (Grid) */
+.vertical {
+  flex-direction: column;
+}
+
+.vertical .preview {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-bottom: 4px solid #000;
+  display: block;
+}
+
+.vertical .content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Layout: Horizontal (List) */
+.horizontal {
+  flex-direction: row;
+  align-items: center;
+  height: 80px; /* Fixed height for rows */
+}
+
+.horizontal .preview {
+  height: 100%;
+  width: 80px; /* Square thumbnail */
+  object-fit: cover;
+  border-bottom: none;
+  border-right: 4px solid #000;
+}
+
+.horizontal .content {
+  padding: 0 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Typography */
+.title {
+  font-family: var(--8bit-font-header, sans-serif);
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: var(--8bit-font-body, monospace);
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Actions Slot (Top Right) */
+.actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  opacity: 0; /* Hidden by default layout? */
+  transition: opacity 0.2s;
+}
+
+.card:hover .actions,
+.card:focus-within .actions {
+  opacity: 1;
+}
+
+/* List view actions alignment */
+.horizontal .actions {
+  position: static;
+  opacity: 1; /* Always visible in list view? Or sticking to right */
+}
+
+/* Drag Overlay */
+.dropInfo {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  border: 4px dashed var(--8bit-primary, #00f);
+  font-family: var(--8bit-font-header);
+  pointer-events: none; /* Let the drag leave fire on parent */
+}
+
+/* Selection Checkbox (Optional visual) */
+.checkbox {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  background: #fff;
+  z-index: 10;
+  cursor: pointer;
+}
+.selected .checkbox {
+  background: var(--8bit-primary, #00f);
+  box-shadow: inset 2px 2px 0px #fff;
+}

@@ -1,0 +1,86 @@
+.bottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--8bit-bg);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Variants */
+.standard {
+  width: 100%;
+  border-top: var(--8bit-pixel-size) solid var(--8bit-border);
+  height: 64px;
+}
+
+.floating {
+  width: min(90%, 960px);
+  margin: 0 auto 16px;
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  height: 72px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Items */
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  color: var(--8bit-text);
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-family: var(--8bit-font-body);
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.item:hover {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.item.active {
+  opacity: 1;
+  color: var(--8bit-primary);
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Action Item Wrapper */
+.actionItem {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  margin: 0 8px;
+
+  transform: translateY(-50%);
+}
+
+.standard .actionItem {
+  transform: translateY(-24px);
+  width: 64px;
+  height: 64px;
+}
+
+.floating .actionItem {
+  transform: none;
+  width: 48px;
+  height: 48px;
+}

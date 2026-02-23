@@ -1,0 +1,126 @@
+/* Modal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Retro Dither Pattern via gradient? Or just simple dark */
+  /* backdrop-filter: blur(2px); Modern but looks okay */
+
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.modal {
+  background-color: var(--8bit-bg);
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  box-shadow:
+    8px 8px 0 rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.5); /* Highlight */
+
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  /* Focus outline */
+  outline: none;
+
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* SIZES */
+.sm {
+  width: 350px;
+} /* Increased from 300px to fit buttons */
+.md {
+  width: 500px;
+}
+.lg {
+  width: 800px;
+}
+
+/* SECTIONS */
+.header {
+  padding: 16px 20px;
+  border-bottom: var(--8bit-pixel-size) solid var(--8bit-border);
+  background-color: var(--8bit-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--8bit-font-header);
+  font-size: 1.2rem;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: var(--8bit-font-body); /* Better match */
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+  text-shadow: 0 0 4px #fff;
+}
+
+.body {
+  padding: 20px;
+  font-family: var(--8bit-font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer {
+  padding: 16px 20px;
+  border-top: var(--8bit-pixel-size) solid var(--8bit-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background-color: rgba(0, 0, 0, 0.02);
+  flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

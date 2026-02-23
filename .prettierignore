@@ -1,0 +1,7 @@
+dist
+storybook-static
+node_modules
+.pnpm-store
+.consumer-*
+pnpm-lock.yaml
+**/next-env.d.ts

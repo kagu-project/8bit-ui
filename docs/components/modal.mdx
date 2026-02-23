@@ -1,0 +1,43 @@
+# Modal
+
+Use `Modal` for blocking dialogs that require focused user attention.
+
+## Import
+
+```tsx
+import { Modal, Button } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <ModalPreview />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size="md">
+  <Modal.Header title="Delete Item" onClose={() => setIsOpen(false)} />
+  <Modal.Body>This action cannot be undone.</Modal.Body>
+  <Modal.Footer>
+    <Button variant="link" onClick={() => setIsOpen(false)}>
+      Cancel
+    </Button>
+    <Button color="danger">Delete</Button>
+  </Modal.Footer>
+</Modal>;
+```
+
+## Key Props
+
+- `Modal`: `isOpen`, `onClose`, `size`, `role`, `title`
+- `Modal.Header`: `title`, `onClose`
+- `Modal.Body`, `Modal.Footer`: layout sections
+
+## Accessibility
+
+- Uses `role="dialog"` and `aria-modal="true"`.
+- Closes on `Escape` and overlay click.

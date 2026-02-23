@@ -1,0 +1,31 @@
+# Input
+
+Use `Input` for single-line text entry.
+
+## Import
+
+```tsx
+import { Input } from '8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <Input placeholder="Player name" fullWidth />
+</div>
+
+```tsx
+<Input placeholder="Player name" fullWidth />
+```
+
+## Key Props
+
+- `variant`: `'solid' | 'ghost'`
+- `error`: error styling state
+- `fullWidth`: expands to container width
+- Plus native `<input>` props
+
+## Accessibility
+
+- Pair with a visible `<label>` or `aria-label`.
+- Prefer `type`, `autoComplete`, and `name` for form usability.

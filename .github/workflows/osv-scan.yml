@@ -1,0 +1,31 @@
+name: OSV Scan
+
+on:
+  pull_request:
+  schedule:
+    - cron: '23 15 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  osv-pr:
+    if: github.event_name == 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@c5996e0193a3df57d695c1b8a1dec2a4c62e8730 # v2.3.3
+    with:
+      scan-args: |-
+        --lockfile=pnpm-lock.yaml
+        --severity=HIGH
+      upload-sarif: false
+
+  osv-full:
+    if: github.event_name != 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@c5996e0193a3df57d695c1b8a1dec2a4c62e8730 # v2.3.3
+    with:
+      scan-args: |-
+        --recursive
+        --lockfile=pnpm-lock.yaml
+        --severity=HIGH
+      fail-on-vuln: true
+      upload-sarif: false
