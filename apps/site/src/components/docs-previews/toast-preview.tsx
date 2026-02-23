@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, ToastProvider, useToast } from '8bit-ui';
+import { Button, ToastProvider, useToast } from '@kagu-project/8bit-ui';
 
 const ToastTrigger = () => {
   const toast = useToast();

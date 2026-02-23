@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Card } from '8bit-ui';
+import { Card } from '@kagu-project/8bit-ui';
 import type { DocMeta } from '@/lib/docs';
 
 export interface SidebarSection {

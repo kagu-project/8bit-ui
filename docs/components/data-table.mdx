@@ -10,7 +10,7 @@
 ## Import
 
 ```tsx
-import { DataTable } from '8bit-ui';
+import { DataTable } from '@kagu-project/8bit-ui';
 import type { ColumnDef } from '@tanstack/react-table';
 ```
 
@@ -111,7 +111,7 @@ Add row-level actions with `createDataTableActionsColumn` and keep business logi
 </div>
 
 ```tsx
-import { DataTable, createDataTableActionsColumn } from '8bit-ui';
+import { DataTable, createDataTableActionsColumn } from '@kagu-project/8bit-ui';
 
 const actionsColumn = createDataTableActionsColumn<Player>({
   getTriggerAriaLabel: ({ originalRow }) => `Row actions for ${originalRow.name}`,
@@ -135,7 +135,7 @@ In `mode="server"`, pass controlled state and always provide `totalRows`.
 
 ```tsx
 import { useState } from 'react';
-import { DataTable, type DataTableState } from '8bit-ui';
+import { DataTable, type DataTableState } from '@kagu-project/8bit-ui';
 
 const [tableState, setTableState] = useState<DataTableState>({
   globalFilter: '',

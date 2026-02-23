@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  transpilePackages: ['8bit-ui'],
+  transpilePackages: ['@kagu-project/8bit-ui'],
   turbopack: {
     root: path.resolve(siteDir, '..', '..'),
   },

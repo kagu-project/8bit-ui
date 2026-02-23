@@ -18,11 +18,11 @@
 ## Installation
 
 ```bash
-pnpm add 8bit-ui
+pnpm add @kagu-project/8bit-ui
 # or
-npm install 8bit-ui
+npm install @kagu-project/8bit-ui
 # or
-yarn add 8bit-ui
+yarn add @kagu-project/8bit-ui
 ```
 
 ## Setup
@@ -30,7 +30,7 @@ yarn add 8bit-ui
 Import the global styles in your application's entry point (e.g., `main.tsx`, `main.jsx`, `App.tsx`, or `index.js`):
 
 ```javascript
-import '8bit-ui/style.css';
+import '@kagu-project/8bit-ui/style.css';
 // Note: If running locally without a build step, import './src/theme/index.css' from this package.
 ```
 
@@ -47,7 +47,7 @@ _Note: You may also need to import the fonts if they aren't bundled. The library
 
 ```jsx
 import React from 'react';
-import { Button, Input, Card, Menu } from '8bit-ui';
+import { Button, Input, Card, Menu } from '@kagu-project/8bit-ui';
 
 const LoginForm = () => {
   return (
@@ -85,7 +85,7 @@ const LoginForm = () => {
 Type definitions are bundled and exported from the package entrypoint. You can import prop types directly:
 
 ```ts
-import { Button, type ButtonProps, Menu, type MenuItemProps } from '8bit-ui';
+import { Button, type ButtonProps, Menu, type MenuItemProps } from '@kagu-project/8bit-ui';
 ```
 
 ## Validation Scripts

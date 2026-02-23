@@ -1,6 +1,6 @@
 'use client';
 
-import { Table } from '8bit-ui';
+import { Table } from '@kagu-project/8bit-ui';
 
 export const TablePreview = () => (
   <Table>

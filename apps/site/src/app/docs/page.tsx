@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Card, Heading, Text, Button } from '8bit-ui';
+import { Card, Heading, Text, Button } from '@kagu-project/8bit-ui';
 import hljs from 'highlight.js';
 
 export const metadata = {
@@ -63,20 +63,20 @@ export default function DocsIndexPage() {
           Install the package via your preferred package manager:
         </Text>
         <div className="homeMiniCode">
-          <CodeBlock code="npm install 8bit-ui" language="bash" />
+          <CodeBlock code="npm install @kagu-project/8bit-ui" language="bash" />
         </div>
         <div className="homeMiniCode" style={{ marginTop: '8px' }}>
-          <CodeBlock code="pnpm add 8bit-ui" language="bash" />
+          <CodeBlock code="pnpm add @kagu-project/8bit-ui" language="bash" />
         </div>
         <div className="homeMiniCode" style={{ marginTop: '8px', marginBottom: '24px' }}>
-          <CodeBlock code="yarn add 8bit-ui" language="bash" />
+          <CodeBlock code="yarn add @kagu-project/8bit-ui" language="bash" />
         </div>
 
         <Text className="homeBodyText" style={{ marginBottom: '12px' }}>
           Next, import the global CSS styles at the root of your application (e.g., in your Next.js <code>layout.tsx</code> or React <code>App.tsx</code>):
         </Text>
         <div className="homeMiniCode">
-          <CodeBlock code="import '8bit-ui/style.css';" language="typescript" />
+          <CodeBlock code="import '@kagu-project/8bit-ui/style.css';" language="typescript" />
         </div>
       </section>
 
@@ -103,7 +103,7 @@ export default function DocsIndexPage() {
         <div className="homeMiniCode" style={{ marginTop: '16px', overflowX: 'auto' }}>
           <CodeBlock
             language="tsx"
-            code={`import { Card, Heading, Text, Button } from '8bit-ui';
+            code={`import { Card, Heading, Text, Button } from '@kagu-project/8bit-ui';
 
 export default function MyComponent() {
   return (
