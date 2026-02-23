@@ -131,7 +131,7 @@ body {
 }
 
 [data-theme='dark'] .homeHeroBackground {
-  background-image: url('/hero-dark.png');
+  background-image: url('/hero-dark.jpeg');
 }
 
 .homeHeroTransition {
