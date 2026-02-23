@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Press_Start_2P, VT323 } from 'next/font/google';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Header, Toolbar } from '8bit-ui';
@@ -7,6 +8,20 @@ import { Providers } from '@/components/Providers';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { siteConfig } from '@/lib/site-config';
 import './globals.css';
+
+const headerFont = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-8bit-header',
+});
+
+const bodyFont = VT323({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-8bit-body',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -27,7 +42,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${headerFont.variable} ${bodyFont.variable}`}
+    >
       <body>
         <Providers>
           <div className="siteShell">

@@ -3,6 +3,8 @@
 
 :root {
   --site-max-width: 1240px;
+  --8bit-font-header: var(--font-8bit-header), 'Press Start 2P', cursive;
+  --8bit-font-body: var(--font-8bit-body), 'VT323', monospace;
   --home-panel-bg: rgba(10, 12, 18, 0.78);
   --home-panel-border: rgba(255, 255, 255, 0.24);
   --home-hero-overlay-top: rgba(4, 7, 14, 0.1);
