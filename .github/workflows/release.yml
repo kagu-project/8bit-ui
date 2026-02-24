@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
@@ -18,6 +19,7 @@ jobs:
   changesets:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment: release
 
     steps:
       - name: Checkout
@@ -47,4 +49,3 @@ jobs:
           title: 'chore: version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
