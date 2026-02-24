@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Press_Start_2P, VT323 } from 'next/font/google';
+import localFont from 'next/font/local';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Header, Toolbar } from '@kagu-project/8bit-ui';
@@ -9,16 +9,18 @@ import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { siteConfig } from '@/lib/site-config';
 import './globals.css';
 
-const headerFont = Press_Start_2P({
+const headerFont = localFont({
+  src: '../../public/fonts/press-start-2p/PressStart2P-Regular.woff2',
   weight: '400',
-  subsets: ['latin'],
+  style: 'normal',
   display: 'swap',
   variable: '--font-8bit-header',
 });
 
-const bodyFont = VT323({
+const bodyFont = localFont({
+  src: '../../public/fonts/vt323/VT323-Regular.woff2',
   weight: '400',
-  subsets: ['latin'],
+  style: 'normal',
   display: 'swap',
   variable: '--font-8bit-body',
 });
