@@ -34,7 +34,18 @@ import '@kagu-project/8bit-ui/style.css';
 // Note: If running locally without a build step, import './src/theme/index.css' from this package.
 ```
 
-_Note: You may also need to import the fonts if they aren't bundled. The library uses `Press Start 2P` for headers and `VT323` for body text. You can add them via Google Fonts in your HTML head:_
+_Note: You may also need to provide fonts if they aren't bundled by your app. The library uses `Press Start 2P` for headers and `VT323` for body text._
+
+Recommended (privacy + reliability): self-host local `.woff2` files and map them to the CSS variables:
+
+```css
+:root {
+  --8bit-font-header: 'Press Start 2P', cursive;
+  --8bit-font-body: 'VT323', monospace;
+}
+```
+
+Optional fallback: load from Google Fonts in your HTML head:
 
 ```html
 <link
