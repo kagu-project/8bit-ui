@@ -690,7 +690,7 @@ body {
 .docsPreviewFrame {
   --pixel: var(--8bit-pixel-size);
   border: var(--pixel) solid var(--8bit-border);
-  background: #fff;
+  background: var(--8bit-bg);
   clip-path: polygon(
     var(--pixel) 0,
     calc(100% - var(--pixel)) 0,
