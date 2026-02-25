@@ -21,6 +21,7 @@ export { default as Layout } from './Layout';
 export { default as ProgressBar } from './ProgressBar';
 export * from './Toast';
 export { default as Modal } from './Modal';
+export { default as Drawer } from './Drawer';
 export { default as Tag } from './Tag';
 export { default as Menu } from './Menu';
 export { default as DataTable } from './DataTable';
@@ -65,6 +66,14 @@ export type {
   MenuSeparatorProps,
 } from './Menu/Menu';
 export type { ModalProps, ModalHeaderProps, ModalBodyProps, ModalFooterProps } from './Modal/Modal';
+export type {
+  DrawerProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+  DrawerPlacement,
+  DrawerSize,
+} from './Drawer/Drawer';
 export type { PaginationProps } from './Pagination/Pagination';
 export type { ProgressBarProps } from './ProgressBar/ProgressBar';
 export type { RadioProps } from './Radio/Radio';

@@ -183,7 +183,6 @@ body {
     linear-gradient(180deg, rgba(8, 10, 14, 0.1), rgba(8, 10, 14, 0.38));
 }
 
-
 .homeTitle {
   margin: 0;
   color: #fff;
@@ -191,7 +190,9 @@ body {
   font-size: clamp(2rem, 6vw, 3.6rem) !important;
   line-height: 1.18;
   letter-spacing: 1.4px;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.45);
+  text-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.45);
 }
 
 .homeLead {
@@ -200,7 +201,9 @@ body {
   font-size: clamp(1.1rem, 2.6vw, 1.5rem) !important;
   line-height: 1.48;
   max-width: 54ch;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.52), 0 0 9px rgba(0, 0, 0, 0.36);
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.52),
+    0 0 9px rgba(0, 0, 0, 0.36);
 }
 
 .commandPrompt {
@@ -818,6 +821,7 @@ body {
   .docsSidebar,
   .docsToc {
     position: static;
+    display: none;
   }
 
   .docsPanelScroll {

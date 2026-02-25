@@ -1,0 +1,197 @@
+/* Drawer.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+.drawer {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--8bit-bg);
+  border: var(--8bit-pixel-size) solid var(--8bit-border);
+  outline: none;
+  overflow: hidden;
+}
+
+/* Placement: left */
+.left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  animation: slideInLeft 0.2s steps(6, end) forwards;
+}
+
+/* Placement: right */
+.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  animation: slideInRight 0.2s steps(6, end) forwards;
+}
+
+/* Placement: top */
+.top {
+  top: 0;
+  left: 0;
+  right: 0;
+  max-height: 85vh;
+  animation: slideInTop 0.2s steps(6, end) forwards;
+}
+
+/* Placement: bottom */
+.bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 85vh;
+  animation: slideInBottom 0.2s steps(6, end) forwards;
+}
+
+/* Sizes (applied to left/right drawers) */
+.sm {
+  width: min(280px, 85vw);
+}
+
+.md {
+  width: min(360px, 85vw);
+}
+
+.lg {
+  width: min(480px, 85vw);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: var(--8bit-pixel-size) solid var(--8bit-border);
+  background-color: var(--8bit-primary);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--8bit-font-header);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: var(--8bit-font-body);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+  text-shadow: 0 0 4px #fff;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--8bit-focus);
+  outline-offset: 2px;
+}
+
+/* Body */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  font-family: var(--8bit-font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  scrollbar-color: var(--8bit-neutral) rgba(0, 0, 0, 0.05);
+}
+
+.body::-webkit-scrollbar {
+  width: 12px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background-color: var(--8bit-neutral);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* Footer */
+.footer {
+  padding: 12px 16px;
+  border-top: var(--8bit-pixel-size) solid var(--8bit-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
