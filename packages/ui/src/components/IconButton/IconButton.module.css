@@ -1,0 +1,135 @@
+/* IconButton.module.css */
+.iconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--8bit-pixel-size) solid transparent;
+  background: transparent;
+  color: var(--8bit-text);
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--8bit-font-body);
+  line-height: 1;
+  transition: transform 0.1s;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Sizes ── */
+.sm {
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+/* ── Variants ── */
+
+/* Ghost: transparent bg, border on hover/focus */
+.ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ghost:hover {
+  border-color: currentColor;
+}
+
+/* Outline: visible border always */
+.outline {
+  border-color: var(--8bit-border);
+  background: transparent;
+}
+
+.outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Default: filled background */
+.default {
+  border-color: var(--8bit-border);
+  background: var(--8bit-bg);
+  box-shadow: calc(var(--8bit-pixel-size) * 1) calc(var(--8bit-pixel-size) * 1) 0 rgba(0, 0, 0, 0.3);
+}
+
+.default:hover {
+  filter: brightness(1.1);
+}
+
+.default:active {
+  transform: translate(
+    calc(var(--8bit-pixel-size) * 0.5),
+    calc(var(--8bit-pixel-size) * 0.5)
+  );
+  box-shadow: calc(var(--8bit-pixel-size) * 0.5) calc(var(--8bit-pixel-size) * 0.5) 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ── Colors ── */
+.primary {
+  color: var(--8bit-primary);
+}
+
+.secondary {
+  color: var(--8bit-secondary);
+}
+
+.danger {
+  color: var(--8bit-danger);
+}
+
+.neutral {
+  color: var(--8bit-text);
+}
+
+/* Filled variant color overrides */
+.default.primary {
+  background: var(--8bit-primary);
+  color: #fff;
+}
+
+.default.secondary {
+  background: var(--8bit-secondary);
+  color: #fff;
+}
+
+.default.danger {
+  background: var(--8bit-danger);
+  color: #fff;
+}
+
+.default.neutral {
+  background: var(--8bit-neutral);
+  color: #fff;
+}
+
+/* ── Focus ── */
+.iconButton:focus-visible {
+  outline: 2px solid var(--8bit-focus);
+  outline-offset: 2px;
+}
+
+/* ── Disabled ── */
+.iconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(100%);
+}

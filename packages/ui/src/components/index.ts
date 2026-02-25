@@ -2,6 +2,7 @@ export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as FAB } from './FAB';
+export { default as IconButton } from './IconButton';
 export { default as Input } from './Input';
 export { default as Radio } from './Radio';
 export { default as Screen } from './Screen';
@@ -52,6 +53,7 @@ export type {
   DataTableRowActionsContext,
 } from './DataTable/DataTableActionsColumn';
 export type { FABProps } from './FAB/FAB';
+export type { IconButtonProps } from './IconButton/IconButton';
 export type { FormProps } from './Form/Form';
 export type { GridProps } from './Grid/Grid';
 export type { HeaderProps } from './Header/Header';

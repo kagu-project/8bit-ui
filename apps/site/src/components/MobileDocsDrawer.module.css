@@ -1,28 +1,3 @@
-.trigger {
-  display: none;
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  z-index: 900;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 6px 10px;
-  border: var(--8bit-pixel-size) solid var(--8bit-border);
-  background: var(--8bit-bg);
-  color: var(--8bit-text);
-  font-family: var(--8bit-font-header);
-  font-size: 0.52rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-  line-height: 1.2;
-}
-
-.trigger:focus-visible {
-  outline: 2px solid var(--8bit-focus);
-  outline-offset: 2px;
-}
-
 .navList {
   list-style: none;
   margin: 0;
@@ -81,13 +56,4 @@
 .navList a.active {
   background: var(--8bit-primary);
   color: #fff;
-}
-
-@media (max-width: 780px) {
-  .trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-  }
 }

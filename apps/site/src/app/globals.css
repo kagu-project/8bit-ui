@@ -53,6 +53,16 @@ body {
   gap: 12px;
 }
 
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobileNavToggle {
+  display: none;
+}
+
 .brand {
   color: inherit;
   text-decoration: none;
@@ -755,6 +765,10 @@ body {
 
   .desktopNav {
     display: none;
+  }
+
+  .mobileNavToggle {
+    display: inline-flex;
   }
 
   .mobileHeaderMenu {

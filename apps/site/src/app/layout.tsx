@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Header, Toolbar } from '@kagu-project/8bit-ui';
 import { MobileHeaderMenu } from '@/components/MobileHeaderMenu';
+import { MobileNavToggle } from '@/components/MobileNavToggle';
 import { Providers } from '@/components/Providers';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { siteConfig } from '@/lib/site-config';
@@ -54,9 +55,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="siteShell">
             <Header variant="primary" elevation={1} className="siteHeader">
               <Toolbar className="siteToolbar">
-                <Link href="/" className="brand">
-                  {siteConfig.brand}
-                </Link>
+                <div className="brandGroup">
+                  <MobileNavToggle />
+                  <Link href="/" className="brand">
+                    {siteConfig.brand}
+                  </Link>
+                </div>
 
                 <nav className="nav desktopNav" aria-label="Primary">
                   <Link href="/docs/">Docs</Link>
