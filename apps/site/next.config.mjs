@@ -13,6 +13,7 @@ const nextConfig = {
   transpilePackages: ['@kagu-project/8bit-ui'],
   turbopack: {
     root: path.resolve(siteDir, '..', '..'),
+    resolveConditions: ['development'],
   },
 };
 

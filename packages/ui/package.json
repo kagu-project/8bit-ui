@@ -32,6 +32,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/8bit-ui.js",
       "require": "./dist/8bit-ui.umd.cjs"
