@@ -99,6 +99,15 @@ Type definitions are bundled and exported from the package entrypoint. You can i
 import { Button, type ButtonProps, Menu, type MenuItemProps } from '@kagu-project/8bit-ui';
 ```
 
+## Export Conditions
+
+This package uses conditional exports:
+
+- `import` / `require` resolve to built files in `dist/` for production/runtime usage.
+- `development` resolves to `src/index.ts` to improve local DX in toolchains that support conditional exports.
+
+This behavior is intentional and is validated by the consumer smoke test (`pnpm test:consumer`).
+
 ## Validation Scripts
 
 ```bash
