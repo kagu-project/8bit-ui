@@ -28,7 +28,7 @@
   text-transform: uppercase;
 
   /* Defaults */
-  --bg: #fff;
+  --bg: var(--8bit-surface);
   --bd: var(--8bit-border);
   --fg: var(--8bit-text);
 
@@ -167,7 +167,7 @@
 }
 
 .outline {
-  --bg: #fff;
+  --bg: var(--8bit-surface);
   --fg: var(--8bit-text);
   --bd: var(--8bit-border);
 }

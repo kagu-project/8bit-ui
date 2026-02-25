@@ -2,6 +2,7 @@
   /* Core Colors */
   --8bit-bg: rgb(236, 236, 223);
   --8bit-text: #15100b;
+  --8bit-surface: #fff; /* Inner fill for cards, tables, inputs */
   --8bit-primary: #3b7270;
   --8bit-secondary: #e07c24;
   --8bit-success: #76c442;
@@ -24,6 +25,7 @@
     /* Summercamp Palette (system preference) */
     --8bit-bg: #1c1810; /* Deep Night Brown */
     --8bit-text: #f8f5de; /* Parchment / Off-white */
+    --8bit-surface: #2a2418; /* Dark surface for inner fills */
     --8bit-primary: #d65d0e; /* Ember Orange - Dragon Fire / Campfire */
     --8bit-secondary: #d79921; /* Gold - Secondary accent */
     --8bit-success: #5ceb5a; /* Slime Green */
@@ -38,6 +40,7 @@
 [data-theme='light'] {
   --8bit-bg: rgb(236, 236, 223);
   --8bit-text: #15100b;
+  --8bit-surface: #fff;
   --8bit-primary: #3b7270;
   --8bit-secondary: #e07c24;
   --8bit-success: #76c442;
@@ -51,6 +54,7 @@
 [data-theme='dark'] {
   --8bit-bg: #1c1810; /* Deep Night Brown */
   --8bit-text: #f8f5de; /* Parchment / Off-white */
+  --8bit-surface: #2a2418; /* Dark surface for inner fills */
   --8bit-primary: #d65d0e; /* Ember Orange - Dragon Fire / Campfire */
   --8bit-secondary: #d79921; /* Gold - Secondary accent */
   --8bit-success: #5ceb5a; /* Slime Green */

@@ -6,6 +6,7 @@
   position: relative;
   background: var(--8bit-border);
   padding: var(--pixel);
+  min-width: 0;
 }
 
 .frame::before {
@@ -15,7 +16,7 @@
   left: var(--pixel);
   right: var(--pixel);
   bottom: var(--pixel);
-  background: #fff;
+  background: var(--8bit-surface);
   z-index: 0;
 }
 
@@ -23,7 +24,7 @@
   position: relative;
   z-index: 1;
   overflow-x: auto;
-  background: #fff;
+  background: var(--8bit-surface);
 }
 
 .table {
@@ -66,11 +67,11 @@
 }
 
 .body > .row:nth-child(even) {
-  background: rgba(21, 16, 11, 0.04);
+  background: rgba(128, 128, 128, 0.08);
 }
 
 .body > .row:hover {
-  background: rgba(59, 114, 112, 0.1);
+  background: color-mix(in srgb, var(--8bit-primary) 10%, transparent);
 }
 
 @media (max-width: 640px) {
