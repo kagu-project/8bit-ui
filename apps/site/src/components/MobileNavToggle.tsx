@@ -20,7 +20,9 @@ export function MobileNavToggle() {
       className="mobileNavToggle"
       onClick={open}
     >
-      <span aria-hidden="true">☰</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M3 4h18v4H3zm0 6h18v4H3zm0 6h18v4H3z" />
+      </svg>
     </IconButton>
   );
 }

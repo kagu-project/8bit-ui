@@ -25,3 +25,15 @@ export const TrashIcon = (props: IconProps) => (
     <path d="M9 3h6l1 2h5v2H3V5h5l1-2zm1 6h2v9h-2V9zm4 0h2v9h-2V9zM7 9h2v9H7V9z" />
   </svg>
 );
+
+export const HamburgerMenuIcon = (props: IconProps) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M3 4h18v4H3zm0 6h18v4H3zm0 6h18v4H3z" />
+  </svg>
+);
+
+export const CloseIcon = (props: IconProps) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M2 2h4v4H2z M18 2h4v4h-4z M6 6h4v4H6z M14 6h4v4h-4z M10 10h4v4h-4z M6 14h4v4H6z M14 14h4v4h-4z M2 18h4v4H2z M18 18h4v4h-4z" />
+  </svg>
+);

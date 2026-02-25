@@ -1,4 +1,5 @@
 import IconButton from './IconButton';
+import { HamburgerMenuIcon, CloseIcon } from '../../storybook/icons';
 
 export default {
   title: '8bitUI/Components/IconButton',
@@ -42,30 +43,30 @@ export const All = () => (
 
     {/* Primary */}
     <IconButton variant="ghost" color="primary" aria-label="Menu">
-      ☰
+      <HamburgerMenuIcon />
     </IconButton>
     <IconButton variant="outline" color="primary" aria-label="Menu">
-      ☰
+      <HamburgerMenuIcon />
     </IconButton>
     <IconButton variant="default" color="primary" aria-label="Menu">
-      ☰
+      <HamburgerMenuIcon />
     </IconButton>
     <IconButton variant="ghost" color="primary" aria-label="Menu" disabled>
-      ☰
+      <HamburgerMenuIcon />
     </IconButton>
 
     {/* Neutral */}
     <IconButton variant="ghost" color="neutral" aria-label="Close">
-      ✕
+      <CloseIcon />
     </IconButton>
     <IconButton variant="outline" color="neutral" aria-label="Close">
-      ✕
+      <CloseIcon />
     </IconButton>
     <IconButton variant="default" color="neutral" aria-label="Close">
-      ✕
+      <CloseIcon />
     </IconButton>
     <IconButton variant="ghost" color="neutral" aria-label="Close" disabled>
-      ✕
+      <CloseIcon />
     </IconButton>
 
     <h3 style={{ gridColumn: 'span 4', textAlign: 'center', marginTop: '12px' }}>Sizes</h3>
@@ -76,37 +77,37 @@ export const All = () => (
     <div />
 
     <IconButton size="sm" aria-label="Settings">
-      ⚙
+      <HamburgerMenuIcon />
     </IconButton>
     <IconButton size="md" aria-label="Settings">
-      ⚙
+      <HamburgerMenuIcon />
     </IconButton>
     <IconButton size="lg" aria-label="Settings">
-      ⚙
+      <HamburgerMenuIcon />
     </IconButton>
   </div>
 );
 
 export const Ghost = () => (
   <IconButton variant="ghost" aria-label="Menu">
-    ☰
+    <HamburgerMenuIcon />
   </IconButton>
 );
 
 export const Outline = () => (
   <IconButton variant="outline" aria-label="Menu">
-    ☰
+    <HamburgerMenuIcon />
   </IconButton>
 );
 
 export const Default = () => (
   <IconButton variant="default" color="primary" aria-label="Menu">
-    ☰
+    <HamburgerMenuIcon />
   </IconButton>
 );
 
 export const Disabled = () => (
   <IconButton variant="ghost" aria-label="Menu" disabled>
-    ☰
+    <HamburgerMenuIcon />
   </IconButton>
 );
