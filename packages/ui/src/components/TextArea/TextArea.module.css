@@ -15,7 +15,7 @@
 
 /* VARIANTS */
 .solid {
-  --bg: #fff;
+  --bg: var(--8bit-surface);
   --fg: var(--8bit-text);
 }
 
@@ -63,6 +63,11 @@
   outline: none;
   resize: vertical; /* Allow vertical resizing only */
   min-height: 60px;
+}
+
+.textarea::placeholder {
+  color: var(--8bit-neutral);
+  opacity: 0.7;
 }
 
 /* GHOST VARIANT OVERRIDES */
