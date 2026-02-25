@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import type { DragEvent, HTMLAttributes, MouseEvent, ReactNode } from 'react';
 import styles from './AssetCard.module.css';

@@ -2,6 +2,9 @@
 
 :root {
   --site-max-width: 1240px;
+  /* Layering scale: page content < sticky chrome (1000-1999) < overlays (9000+). */
+  --site-z-sticky: 1200;
+  --site-z-overlay: 9999;
   --8bit-font-header: var(--font-8bit-header), 'Press Start 2P', cursive;
   --8bit-font-body: var(--font-8bit-body), 'VT323', monospace;
   --home-panel-bg: rgba(10, 12, 18, 0.78);
@@ -40,7 +43,7 @@ body {
 .siteHeader {
   position: sticky;
   top: 0;
-  z-index: 1200;
+  z-index: var(--site-z-sticky);
 }
 
 .siteToolbar {
