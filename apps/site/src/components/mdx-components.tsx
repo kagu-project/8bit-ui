@@ -13,6 +13,7 @@ import {
   SelectPreview,
   TablePreview,
   ToastPreview,
+  ViewTogglePreview,
 } from './docs-previews';
 import { DocsCodeBlock, DocsDiv } from './docs-mdx-wrappers';
 
@@ -56,6 +57,7 @@ const components: MDXComponentMap = {
   SelectPreview,
   TablePreview,
   ToastPreview,
+  ViewTogglePreview,
 };
 
 export { components };
