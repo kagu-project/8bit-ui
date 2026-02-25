@@ -79,7 +79,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <main className="main">{children}</main>
 
             <footer className="footer">
-              <div className="footerInner">Built with Next.js static export + MDX docs content.</div>
+              <div className="footerInner">
+                Built with Next.js static export + MDX docs content.
+              </div>
             </footer>
           </div>
         </Providers>
