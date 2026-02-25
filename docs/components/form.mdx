@@ -27,9 +27,13 @@ import { Form, Input, Button } from '@kagu-project/8bit-ui';
 ```css
 .formRow {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.formRow > :first-child {
+  flex: 1 1 240px;
 }
 ```
 

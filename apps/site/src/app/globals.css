@@ -1036,3 +1036,14 @@ body {
   margin: 8px 2px 0;
   font-size: 0.95rem;
 }
+
+.formRow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.formRow > :first-child {
+  flex: 1 1 240px;
+}
