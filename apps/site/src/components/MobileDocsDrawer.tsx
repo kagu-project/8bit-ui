@@ -29,7 +29,7 @@ export function MobileDocsDrawer({ data }: { data: SidebarSection[] }) {
             <li className={styles.topLink}>
               <Link
                 href="/docs/"
-                className={pathname === '/docs' ? (styles.active ?? 'active') : ''}
+                className={pathname === '/docs' ? styles.active : ''}
                 aria-current={pathname === '/docs' ? 'page' : undefined}
                 onClick={close}
               >
@@ -42,7 +42,7 @@ export function MobileDocsDrawer({ data }: { data: SidebarSection[] }) {
                 <div className={styles.sectionLabel}>
                   <Link
                     href={`/docs/${section}/`}
-                    className={pathname === normalizePath(`/docs/${section}/`) ? 'active' : ''}
+                    className={pathname === normalizePath(`/docs/${section}/`) ? styles.active : ''}
                     aria-current={
                       pathname === normalizePath(`/docs/${section}/`) ? 'page' : undefined
                     }
@@ -59,7 +59,7 @@ export function MobileDocsDrawer({ data }: { data: SidebarSection[] }) {
                       <li key={`${entry.section}-${entry.slug}`}>
                         <Link
                           href={href}
-                          className={isActive ? 'active' : ''}
+                          className={isActive ? styles.active : ''}
                           aria-current={isActive ? 'page' : undefined}
                           onClick={close}
                         >
