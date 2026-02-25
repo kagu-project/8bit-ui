@@ -1008,7 +1008,8 @@ body {
 
 .previewTile {
   border: 2px solid var(--8bit-border);
-  background: #fff;
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
   padding: 10px;
 }
 
@@ -1016,8 +1017,9 @@ body {
   position: relative;
   width: min(100%, 420px);
   height: 180px;
-  border: 2px dashed #666;
-  background: #fff;
+  border: 2px dashed var(--8bit-neutral);
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
 }
 
 .previewViewportText {
@@ -1035,6 +1037,13 @@ body {
 .previewMetaText {
   margin: 8px 2px 0;
   font-size: 0.95rem;
+}
+
+.gridItem {
+  border: 2px solid var(--8bit-border);
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
+  padding: 10px;
 }
 
 .formRow {
