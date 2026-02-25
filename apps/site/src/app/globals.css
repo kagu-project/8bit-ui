@@ -1,5 +1,4 @@
 @import '@kagu-project/8bit-ui/style.css';
-@import 'highlight.js/styles/base16/summercamp.css';
 
 :root {
   --site-max-width: 1240px;
@@ -452,8 +451,8 @@ body {
   word-break: normal;
 }
 
-/* Force bash commands to use retro green terminal text instead of hljs default grey */
-.homeMiniCode code.language-bash.hljs {
+/* Force bash commands to use retro green terminal text */
+.homeMiniCode code {
   color: #89ff6f;
 }
 
@@ -714,6 +713,22 @@ body {
 
 .docArticle code {
   font-family: var(--8bit-font-body);
+}
+
+/* Shiki code block integration */
+.docArticle .shiki,
+.docsPreviewFrame .shiki,
+.homeMiniCode .shiki {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.docArticle .shiki code,
+.docsPreviewFrame .shiki code,
+.homeMiniCode .shiki code {
+  font-family: var(--8bit-font-body);
+  font-size: inherit;
+  line-height: 1.6;
 }
 
 .docsPanelTitle {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
-import rehypeHighlight from 'rehype-highlight';
+import rehypeShiki from '@shikijs/rehype';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { components } from '@/components/mdx-components';
@@ -54,7 +54,7 @@ export default async function DocPage({
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight, rehypeSlug],
+        rehypePlugins: [[rehypeShiki, { theme: 'ayu-dark' }], rehypeSlug],
       },
       parseFrontmatter: false,
       blockJS: false,
