@@ -2,11 +2,11 @@
 
 import { usePathname } from 'next/navigation';
 import { IconButton } from '@kagu-project/8bit-ui';
-import { useMobileNav } from './MobileNavContext';
+import { MOBILE_DOCS_DRAWER_ID, useMobileNav } from './MobileNavContext';
 
 export function MobileNavToggle() {
   const pathname = usePathname() ?? '/';
-  const { open } = useMobileNav();
+  const { isOpen, open, close } = useMobileNav();
 
   if (pathname !== '/docs' && !pathname.startsWith('/docs/')) {
     return null;
@@ -14,11 +14,13 @@ export function MobileNavToggle() {
 
   return (
     <IconButton
-      aria-label="Open docs navigation"
+      aria-label={isOpen ? 'Close docs navigation' : 'Open docs navigation'}
+      aria-expanded={isOpen}
+      aria-controls={MOBILE_DOCS_DRAWER_ID}
       variant="ghost"
       size="sm"
       className="mobileNavToggle"
-      onClick={open}
+      onClick={isOpen ? close : open}
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M3 4h18v4H3zm0 6h18v4H3zm0 6h18v4H3z" />

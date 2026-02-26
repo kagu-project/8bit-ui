@@ -32,6 +32,16 @@ const BASE_COLUMNS: DataTableProps<Player>['columns'] = [
   { accessorKey: 'score', header: 'Score', enableSorting: true },
 ];
 
+export const DataTableQuickStartPreview = () => (
+  <DataTable
+    columns={BASE_COLUMNS}
+    data={[
+      { id: 1, name: 'Nova', role: 'Engineer', score: 94 },
+      { id: 2, name: 'Echo', role: 'Designer', score: 88 },
+    ]}
+  />
+);
+
 export const DataTableRowSelectionPreview = () => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Drawer } from '@kagu-project/8bit-ui';
 import type { SidebarSection } from './DocsSidebar';
-import { useMobileNav } from './MobileNavContext';
+import { MOBILE_DOCS_DRAWER_ID, useMobileNav } from './MobileNavContext';
 import styles from './MobileDocsDrawer.module.css';
 
 const normalizePath = (value: string): string => {
@@ -21,7 +21,7 @@ export function MobileDocsDrawer({ data }: { data: SidebarSection[] }) {
   const pathname = normalizePath(usePathname() ?? '/');
 
   return (
-    <Drawer isOpen={isOpen} onClose={close} placement="left" size="sm">
+    <Drawer id={MOBILE_DOCS_DRAWER_ID} isOpen={isOpen} onClose={close} placement="left" size="sm">
       <Drawer.Header title="Documentation" onClose={close} />
       <Drawer.Body>
         <nav aria-label="Docs navigation">

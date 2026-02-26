@@ -1,9 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { useState } from 'react';
 import Drawer from './Drawer';
 
 describe('Drawer', () => {
+  beforeEach(() => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('renders nothing when not open', () => {
     render(
       <Drawer isOpen={false}>
@@ -224,6 +232,58 @@ describe('Drawer', () => {
 
     expect(dialog).toHaveAttribute('aria-labelledby', title.getAttribute('id'));
     expect(title).toHaveAttribute('id');
+  });
+
+  it('uses fallback accessible label when no title or aria labels are provided', () => {
+    const warnSpy = vi.spyOn(console, 'warn');
+
+    render(
+      <Drawer isOpen={true}>
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Drawer' });
+    expect(dialog).toHaveAttribute('aria-label', 'Drawer');
+    expect(dialog).not.toHaveAttribute('aria-labelledby');
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Drawer requires an accessible name'),
+    );
+  });
+
+  it('prefers explicit aria-label over fallback', () => {
+    render(
+      <Drawer isOpen={true} aria-label="Navigation panel">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Navigation panel' });
+    expect(dialog).toHaveAttribute('aria-label', 'Navigation panel');
+  });
+
+  it('uses fallback accessible label for alertdialog when no title or aria labels are provided', () => {
+    render(
+      <Drawer isOpen={true} role="alertdialog">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const alertDialog = screen.getByRole('alertdialog', { name: 'Drawer' });
+    expect(alertDialog).toHaveAttribute('aria-label', 'Drawer');
+    expect(alertDialog).not.toHaveAttribute('aria-labelledby');
+  });
+
+  it('does not warn about missing accessible name for non-dialog roles', () => {
+    const warnSpy = vi.spyOn(console, 'warn');
+
+    render(
+      <Drawer isOpen={true} role="complementary">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    expect(warnSpy).not.toHaveBeenCalled();
   });
 
   it('locks body scroll when open and restores on close', () => {
