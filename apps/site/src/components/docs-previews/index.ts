@@ -1,5 +1,6 @@
 export { BottomNavPreview, BottomNavFixedPatternPreview } from './bottom-nav-preview';
 export {
+  DataTableQuickStartPreview,
   DataTableActionsPreview,
   DataTableColumnFiltersPreview,
   DataTableRowSelectionPreview,
