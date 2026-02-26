@@ -21,14 +21,7 @@ export function MobileDocsDrawer({ data }: { data: SidebarSection[] }) {
   const pathname = normalizePath(usePathname() ?? '/');
 
   return (
-    <Drawer
-      id={MOBILE_DOCS_DRAWER_ID}
-      isOpen={isOpen}
-      onClose={close}
-      placement="left"
-      size="sm"
-      aria-label="Documentation navigation"
-    >
+    <Drawer id={MOBILE_DOCS_DRAWER_ID} isOpen={isOpen} onClose={close} placement="left" size="sm">
       <Drawer.Header title="Documentation" onClose={close} />
       <Drawer.Body>
         <nav aria-label="Docs navigation">

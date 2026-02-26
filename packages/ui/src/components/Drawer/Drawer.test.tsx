@@ -235,6 +235,8 @@ describe('Drawer', () => {
   });
 
   it('uses fallback accessible label when no title or aria labels are provided', () => {
+    const warnSpy = vi.spyOn(console, 'warn');
+
     render(
       <Drawer isOpen={true}>
         <Drawer.Body>Content</Drawer.Body>
@@ -244,6 +246,9 @@ describe('Drawer', () => {
     const dialog = screen.getByRole('dialog', { name: 'Drawer' });
     expect(dialog).toHaveAttribute('aria-label', 'Drawer');
     expect(dialog).not.toHaveAttribute('aria-labelledby');
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Drawer requires an accessible name'),
+    );
   });
 
   it('prefers explicit aria-label over fallback', () => {

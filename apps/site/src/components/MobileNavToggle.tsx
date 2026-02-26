@@ -17,7 +17,6 @@ export function MobileNavToggle() {
       aria-label={isOpen ? 'Close docs navigation' : 'Open docs navigation'}
       aria-expanded={isOpen}
       aria-controls={MOBILE_DOCS_DRAWER_ID}
-      aria-haspopup="dialog"
       variant="ghost"
       size="sm"
       className="mobileNavToggle"
