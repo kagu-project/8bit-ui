@@ -215,7 +215,7 @@
 
 .fab:focus-visible:active:not(:disabled),
 .fab:focus-visible[data-pressed='true']:not(:disabled) {
-  filter: drop-shadow(0 0 6px var(--8bit-focus)) brightness(1.1);
+  filter: drop-shadow(0 0 6px var(--8bit-focus)) brightness(0.9);
 }
 
 .fab:disabled {
