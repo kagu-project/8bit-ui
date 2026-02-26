@@ -1,7 +1,7 @@
 {
   "name": "@kagu-project/8bit-ui",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Retro-styled React component library inspired by classic handheld gaming.",
   "license": "MIT",
   "repository": {

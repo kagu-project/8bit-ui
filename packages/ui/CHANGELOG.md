@@ -1,5 +1,11 @@
 # 8bit-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- c6cc0bc: Enhanced the `FAB` component with robust keyboard interaction support and refined style adjustments. Also fixed both the `Button` and `FAB` components to ensure their `type` attribute safely defaults to `'button'` and correctly handles invalid HTML types.
+
 ## 0.2.0
 
 ### Minor Changes
