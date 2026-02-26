@@ -149,6 +149,7 @@ Release flow:
 | **DataTable**   | Data grid with sorting, global/column filters, and paging. | `client`, `server` (modes)            |
 | **Grid**        | Responsive retro grid system.                              | `columns`, `minWidth`, `gap`          |
 | **Header**      | Fixed top bar for navigation/branding.                     | `primary`, `secondary`, `transparent` |
+| **IconButton**  | Compact icon-only action button.                           | `default`, `outline`, `ghost`         |
 | **Input**       | Text field with notched corners.                           | `solid`, `ghost`                      |
 | **Layout**      | App shell with flexible padding management.                | -                                     |
 | **Menu**        | Context/action menu with keyboard and portal positioning.  | -                                     |
