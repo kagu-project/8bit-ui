@@ -1,8 +1,10 @@
 @import '@kagu-project/8bit-ui/style.css';
-@import 'highlight.js/styles/base16/summercamp.css';
 
 :root {
   --site-max-width: 1240px;
+  /* Layering scale: page content < sticky chrome (1000-1999) < overlays (9000+). */
+  --site-z-sticky: 1200;
+  --site-z-overlay: 9999;
   --8bit-font-header: var(--font-8bit-header), 'Press Start 2P', cursive;
   --8bit-font-body: var(--font-8bit-body), 'VT323', monospace;
   --home-panel-bg: rgba(10, 12, 18, 0.78);
@@ -41,7 +43,7 @@ body {
 .siteHeader {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: var(--site-z-sticky);
 }
 
 .siteToolbar {
@@ -51,6 +53,16 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 12px;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobileNavToggle {
+  display: none;
 }
 
 .brand {
@@ -183,7 +195,6 @@ body {
     linear-gradient(180deg, rgba(8, 10, 14, 0.1), rgba(8, 10, 14, 0.38));
 }
 
-
 .homeTitle {
   margin: 0;
   color: #fff;
@@ -191,7 +202,9 @@ body {
   font-size: clamp(2rem, 6vw, 3.6rem) !important;
   line-height: 1.18;
   letter-spacing: 1.4px;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 0, 0, 0.45);
+  text-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.45);
 }
 
 .homeLead {
@@ -200,7 +213,9 @@ body {
   font-size: clamp(1.1rem, 2.6vw, 1.5rem) !important;
   line-height: 1.48;
   max-width: 54ch;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.52), 0 0 9px rgba(0, 0, 0, 0.36);
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.52),
+    0 0 9px rgba(0, 0, 0, 0.36);
 }
 
 .commandPrompt {
@@ -439,8 +454,8 @@ body {
   word-break: normal;
 }
 
-/* Force bash commands to use retro green terminal text instead of hljs default grey */
-.homeMiniCode code.language-bash.hljs {
+/* Force bash commands to use retro green terminal text */
+.homeMiniCode code {
   color: #89ff6f;
 }
 
@@ -677,7 +692,7 @@ body {
 .docsPreviewFrame {
   --pixel: var(--8bit-pixel-size);
   border: var(--pixel) solid var(--8bit-border);
-  background: #fff;
+  background: var(--8bit-bg);
   clip-path: polygon(
     var(--pixel) 0,
     calc(100% - var(--pixel)) 0,
@@ -701,6 +716,22 @@ body {
 
 .docArticle code {
   font-family: var(--8bit-font-body);
+}
+
+/* Shiki code block integration */
+.docArticle .shiki,
+.docsPreviewFrame .shiki,
+.homeMiniCode .shiki {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.docArticle .shiki code,
+.docsPreviewFrame .shiki code,
+.homeMiniCode .shiki code {
+  font-family: var(--8bit-font-body);
+  font-size: inherit;
+  line-height: 1.6;
 }
 
 .docsPanelTitle {
@@ -752,6 +783,10 @@ body {
 
   .desktopNav {
     display: none;
+  }
+
+  .mobileNavToggle {
+    display: inline-flex;
   }
 
   .mobileHeaderMenu {
@@ -818,6 +853,7 @@ body {
   .docsSidebar,
   .docsToc {
     position: static;
+    display: none;
   }
 
   .docsPanelScroll {
@@ -975,7 +1011,8 @@ body {
 
 .previewTile {
   border: 2px solid var(--8bit-border);
-  background: #fff;
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
   padding: 10px;
 }
 
@@ -983,8 +1020,9 @@ body {
   position: relative;
   width: min(100%, 420px);
   height: 180px;
-  border: 2px dashed #666;
-  background: #fff;
+  border: 2px dashed var(--8bit-neutral);
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
 }
 
 .previewViewportText {
@@ -1002,4 +1040,22 @@ body {
 .previewMetaText {
   margin: 8px 2px 0;
   font-size: 0.95rem;
+}
+
+.gridItem {
+  border: 2px solid var(--8bit-border);
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
+  padding: 10px;
+}
+
+.formRow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.formRow > :first-child {
+  flex: 1 1 240px;
 }

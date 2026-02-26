@@ -12,9 +12,9 @@ import { Grid } from '@kagu-project/8bit-ui';
 
 <div className="preview">
   <Grid columns="auto" minWidth={240} gap={12}>
-    <div className="previewTile">Item A</div>
-    <div className="previewTile">Item B</div>
-    <div className="previewTile">Item C</div>
+    <div className="gridItem">Item A</div>
+    <div className="gridItem">Item B</div>
+    <div className="gridItem">Item C</div>
   </Grid>
 </div>
 
@@ -29,7 +29,8 @@ import { Grid } from '@kagu-project/8bit-ui';
 ```css
 .gridItem {
   border: 2px solid var(--8bit-border);
-  background: #fff;
+  background: var(--8bit-bg);
+  color: var(--8bit-text);
   padding: 10px;
 }
 ```

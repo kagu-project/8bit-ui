@@ -2,6 +2,7 @@ export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as FAB } from './FAB';
+export { default as IconButton } from './IconButton';
 export { default as Input } from './Input';
 export { default as Radio } from './Radio';
 export { default as Screen } from './Screen';
@@ -21,6 +22,7 @@ export { default as Layout } from './Layout';
 export { default as ProgressBar } from './ProgressBar';
 export * from './Toast';
 export { default as Modal } from './Modal';
+export { default as Drawer } from './Drawer';
 export { default as Tag } from './Tag';
 export { default as Menu } from './Menu';
 export { default as DataTable } from './DataTable';
@@ -51,6 +53,7 @@ export type {
   DataTableRowActionsContext,
 } from './DataTable/DataTableActionsColumn';
 export type { FABProps } from './FAB/FAB';
+export type { IconButtonProps } from './IconButton/IconButton';
 export type { FormProps } from './Form/Form';
 export type { GridProps } from './Grid/Grid';
 export type { HeaderProps } from './Header/Header';
@@ -65,6 +68,14 @@ export type {
   MenuSeparatorProps,
 } from './Menu/Menu';
 export type { ModalProps, ModalHeaderProps, ModalBodyProps, ModalFooterProps } from './Modal/Modal';
+export type {
+  DrawerProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+  DrawerPlacement,
+  DrawerSize,
+} from './Drawer/Drawer';
 export type { PaginationProps } from './Pagination/Pagination';
 export type { ProgressBarProps } from './ProgressBar/ProgressBar';
 export type { RadioProps } from './Radio/Radio';

@@ -101,7 +101,21 @@
   justify-content: flex-end;
   gap: 12px;
   background-color: rgba(0, 0, 0, 0.02);
-  flex-wrap: wrap; /* Allow wrapping if needed */
+  flex-wrap: wrap;
+}
+
+.footer > * {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 560px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer > * {
+    width: 100%;
+  }
 }
 
 /* ANIMATIONS */

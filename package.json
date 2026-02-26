@@ -35,7 +35,8 @@
   },
   "pnpm": {
     "overrides": {
-      "minimatch": ">=10.2.1"
+      "minimatch": ">=10.2.1",
+      "rollup": ">=4.59.0"
     }
   },
   "devDependencies": {

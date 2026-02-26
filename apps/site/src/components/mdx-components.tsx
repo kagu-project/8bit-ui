@@ -7,12 +7,14 @@ import {
   DataTableRowSelectionPreview,
   DataTableServerModePreview,
   BottomNavFixedPatternPreview,
+  DrawerPreview,
   LayoutPreview,
   MenuPreview,
   ModalPreview,
   SelectPreview,
   TablePreview,
   ToastPreview,
+  ViewTogglePreview,
 } from './docs-previews';
 import { DocsCodeBlock, DocsDiv } from './docs-mdx-wrappers';
 
@@ -24,7 +26,10 @@ const { createDataTableActionsColumn, useToast, ...uiComponents } = UI;
 
 const compoundComponents = Object.fromEntries(
   Object.entries(uiComponents).flatMap(([parentName, parentValue]) => {
-    if ((typeof parentValue !== 'function' && typeof parentValue !== 'object') || parentValue === null) {
+    if (
+      (typeof parentValue !== 'function' && typeof parentValue !== 'object') ||
+      parentValue === null
+    ) {
       return [];
     }
 
@@ -50,12 +55,14 @@ const components: MDXComponentMap = {
   DataTableRowSelectionPreview,
   DataTableServerModePreview,
   BottomNavFixedPatternPreview,
+  DrawerPreview,
   LayoutPreview,
   MenuPreview,
   ModalPreview,
   SelectPreview,
   TablePreview,
   ToastPreview,
+  ViewTogglePreview,
 };
 
 export { components };

@@ -12,8 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
-  background: #fff;
+  border: 2px solid var(--8bit-border, #15100b);
+  background: var(--8bit-surface, #fff);
+  color: var(--8bit-text, #15100b);
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
@@ -22,7 +23,7 @@
 }
 
 .pageBtn:hover:not(:disabled) {
-  background: #f0f0f0;
+  background: color-mix(in srgb, var(--8bit-surface, #fff) 82%, var(--8bit-text, #15100b) 18%);
   transform: translateY(-1px);
 }
 
@@ -32,13 +33,13 @@
 
 .active {
   background: var(--8bit-primary, #000) !important;
-  color: #fff;
-  border-color: #000;
+  color: var(--8bit-surface, #fff);
+  border-color: var(--8bit-border, #15100b);
 }
 
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: #eee;
-  border-color: #aaa;
+  background: color-mix(in srgb, var(--8bit-surface, #fff) 70%, var(--8bit-bg, #ececdf) 30%);
+  border-color: color-mix(in srgb, var(--8bit-border, #15100b) 60%, var(--8bit-surface, #fff) 40%);
 }

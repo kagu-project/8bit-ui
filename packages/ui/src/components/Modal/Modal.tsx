@@ -1,3 +1,5 @@
+'use client';
+
 import { createPortal } from 'react-dom';
 import { useEffect, useRef } from 'react';
 import type { AriaRole, FC, HTMLAttributes, MouseEvent, ReactNode } from 'react';

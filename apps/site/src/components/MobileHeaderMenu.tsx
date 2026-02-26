@@ -31,8 +31,8 @@ export function MobileHeaderMenu({ repoUrl }: MobileHeaderMenuProps) {
   return (
     <div className={styles.wrapper}>
       <Menu>
-        <Menu.Trigger ariaLabel="Open primary navigation menu" className={styles.trigger}>
-          Menu
+        <Menu.Trigger ariaLabel="Open settings menu" className={styles.trigger}>
+          Settings
         </Menu.Trigger>
 
         <Menu.Content align="end" className={styles.content}>

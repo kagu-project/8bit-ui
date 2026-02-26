@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { ThemeProvider } from 'next-themes';
+import { MobileNavProvider } from './MobileNavContext';
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -11,7 +12,7 @@ export function Providers({ children }: { children: ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <MobileNavProvider>{children}</MobileNavProvider>
     </ThemeProvider>
   );
 }

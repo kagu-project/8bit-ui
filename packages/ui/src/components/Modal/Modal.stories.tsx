@@ -115,3 +115,34 @@ export const FormInside: Story = {
     );
   },
 };
+
+export const MobileFooterLayout: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <>
+        <Button onClick={() => setIsOpen(true)}>Open Mobile Layout</Button>
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size="sm">
+          <Modal.Header title="Confirm Action" onClose={() => setIsOpen(false)} />
+          <Modal.Body>
+            <p>On narrow screens, footer actions should stack and fill available width.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="link" onClick={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="solid" color="primary" onClick={() => setIsOpen(false)}>
+              Continue
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  },
+};

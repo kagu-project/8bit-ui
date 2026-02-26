@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import type { CSSProperties, ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
 import styles from './Checkbox.module.css';

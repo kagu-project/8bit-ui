@@ -4,19 +4,19 @@ import { Table } from '@kagu-project/8bit-ui';
 
 export const TablePreview = () => (
   <Table>
-    <thead>
-      <tr>
-        <th scope="col">Item</th>
-        <th scope="col">Qty</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Pixel Potion</td>
-        <td>2</td>
-        <td>$10</td>
-      </tr>
-    </tbody>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell scope="col">Item</Table.HeaderCell>
+        <Table.HeaderCell scope="col">Qty</Table.HeaderCell>
+        <Table.HeaderCell scope="col">Price</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Pixel Potion</Table.Cell>
+        <Table.Cell>2</Table.Cell>
+        <Table.Cell>$10</Table.Cell>
+      </Table.Row>
+    </Table.Body>
   </Table>
 );
