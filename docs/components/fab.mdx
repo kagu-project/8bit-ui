@@ -31,6 +31,89 @@ import { FAB } from '@kagu-project/8bit-ui';
 </FAB>
 ```
 
+## Types and Variants
+
+<div className="preview">
+  <div style={{ display: 'grid', gap: 16 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+      <span style={{ minWidth: 64, fontSize: 12 }}>Solid</span>
+      <FAB aria-label="Solid primary" variant="primary" type="solid" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Solid secondary" variant="secondary" type="solid" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Solid danger" variant="danger" type="solid" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Solid success" variant="success" type="solid" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+      <span style={{ minWidth: 64, fontSize: 12 }}>Outline</span>
+      <FAB aria-label="Outline primary" variant="primary" type="outline" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Outline secondary" variant="secondary" type="outline" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Outline danger" variant="danger" type="outline" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+      <FAB aria-label="Outline success" variant="success" type="outline" shape="square">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+        </svg>
+      </FAB>
+    </div>
+  </div>
+</div>
+
+```tsx
+<>
+  <FAB aria-label="Solid primary" variant="primary" type="solid" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Solid secondary" variant="secondary" type="solid" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Solid danger" variant="danger" type="solid" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Solid success" variant="success" type="solid" shape="square">
+    +
+  </FAB>
+
+  <FAB aria-label="Outline primary" variant="primary" type="outline" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Outline secondary" variant="secondary" type="outline" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Outline danger" variant="danger" type="outline" shape="square">
+    +
+  </FAB>
+  <FAB aria-label="Outline success" variant="success" type="outline" shape="square">
+    +
+  </FAB>
+</>
+```
+
 ## Key Props
 
 - `variant`: `'primary' | 'secondary' | 'danger' | 'success'`

@@ -36,4 +36,36 @@ describe('FAB Component', () => {
     const button = screen.getByRole('button');
     expect(button.className).toContain('fabFloating');
   });
+
+  it('always renders native button type as button', () => {
+    render(<FAB type="outline">Action</FAB>);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'button');
+  });
+
+  it('falls back invalid visual type to solid', () => {
+    render(<FAB type={'aaaaa' as unknown as 'solid'}>Action</FAB>);
+    const button = screen.getByRole('button');
+    expect(button.className).toContain('solid');
+    expect(button.className).not.toContain('undefined');
+  });
+
+  it('tracks keyboard pressed state like Button', () => {
+    render(<FAB>Action</FAB>);
+    const button = screen.getByRole('button');
+
+    // Enter key interaction
+    fireEvent.keyDown(button, { key: 'Enter' });
+    expect(button).toHaveAttribute('data-pressed', 'true');
+
+    fireEvent.keyUp(button, { key: 'Enter' });
+    expect(button).toHaveAttribute('data-pressed', 'false');
+
+    // Space key interaction
+    fireEvent.keyDown(button, { key: ' ' });
+    expect(button).toHaveAttribute('data-pressed', 'true');
+
+    fireEvent.keyUp(button, { key: ' ' });
+    expect(button).toHaveAttribute('data-pressed', 'false');
+  });
 });

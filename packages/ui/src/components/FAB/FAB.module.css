@@ -23,27 +23,24 @@
   background-color: var(--bd);
   color: var(--fg); /* Icon color */
 
-  /* NO INSET SHADOWS - Flat Colors Only */
+  /* Flat style, no physical drop-shadow */
   box-shadow: none;
-  /* Hard Drop Shadow */
-  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.5));
+  filter: none;
 
-  transition: transform 0.1s;
+  transition: filter 0.1s;
 }
 
 /* THE INNER FILL (Color) */
 .fab::before {
   content: '';
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
   background-color: var(--bg);
-  /* Use the same clip-path shape as parent, or simpler shape if it fits */
-  /* For square notch, a simple square fill fits inside perfectly */
-  /* For round, re-applying clip-path works mostly, or slight adjustment */
-  clip-path: inherit;
+  /* Default inner fill is a simple inset rect, matching other notched components. */
+  clip-path: none;
   z-index: -1; /* Behind content */
 }
 
@@ -53,21 +50,11 @@
   z-index: 1;
 }
 
-.fab:active {
-  transform: translate(2px, 2px);
-  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
-}
-
 /* SHAPES */
 
 /* Square (Single Notch) */
 .square {
   composes: notched from '../../theme/utility.module.css';
-  border-radius: 0;
-  clip-path: none;
-}
-.square::before {
-  clip-path: none;
   border-radius: 0;
 }
 
@@ -120,10 +107,10 @@
 
 /* Round Inner Fill */
 .round::before {
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: var(--pixel);
+  left: var(--pixel);
+  right: var(--pixel);
+  bottom: var(--pixel);
   /* Specific inner shape for round to match border thickness */
   clip-path: polygon(
     16px 0,
@@ -201,4 +188,40 @@
 }
 .outline.success {
   --btn-color: var(--8bit-success);
+}
+
+/* INTERACTION
+   Keep these rules after variants so focus can override variant border color like Button does.
+*/
+.fab:focus-visible {
+  outline: none;
+  --bd: var(--8bit-focus);
+  filter: drop-shadow(0 0 6px var(--8bit-focus));
+  z-index: 10;
+}
+
+.fab:focus-visible:hover:not(:disabled) {
+  filter: drop-shadow(0 0 6px var(--8bit-focus)) brightness(1.1);
+}
+
+.fab:hover:not(:disabled) {
+  filter: brightness(1.15) contrast(1.05);
+}
+
+.fab:active:not(:disabled),
+.fab[data-pressed='true']:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+.fab:focus-visible:active:not(:disabled),
+.fab:focus-visible[data-pressed='true']:not(:disabled) {
+  filter: drop-shadow(0 0 6px var(--8bit-focus)) brightness(0.9);
+}
+
+.fab:disabled {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
 }
