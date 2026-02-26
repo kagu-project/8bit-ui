@@ -36,4 +36,15 @@ describe('FAB Component', () => {
     const button = screen.getByRole('button');
     expect(button.className).toContain('fabFloating');
   });
+
+  it('tracks keyboard pressed state like Button', () => {
+    render(<FAB>Action</FAB>);
+    const button = screen.getByRole('button');
+
+    fireEvent.keyDown(button, { key: 'Enter' });
+    expect(button).toHaveAttribute('data-pressed', 'true');
+
+    fireEvent.keyUp(button, { key: 'Enter' });
+    expect(button).toHaveAttribute('data-pressed', 'false');
+  });
 });
