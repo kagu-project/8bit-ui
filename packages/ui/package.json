@@ -25,7 +25,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "main": "./dist/8bit-ui.umd.cjs",
   "module": "./dist/8bit-ui.js",
