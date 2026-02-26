@@ -561,6 +561,10 @@ body {
   padding: 4px 6px;
 }
 
+.docsTocList a {
+  line-height: 1.4;
+}
+
 .docsSidebarList a:hover,
 .docsSidebarList a:focus-visible,
 .docsTocList a:hover,
