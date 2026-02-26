@@ -226,6 +226,29 @@ describe('Drawer', () => {
     expect(title).toHaveAttribute('id');
   });
 
+  it('uses fallback accessible label when no title or aria labels are provided', () => {
+    render(
+      <Drawer isOpen={true}>
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Drawer' });
+    expect(dialog).toHaveAttribute('aria-label', 'Drawer');
+    expect(dialog).not.toHaveAttribute('aria-labelledby');
+  });
+
+  it('prefers explicit aria-label over fallback', () => {
+    render(
+      <Drawer isOpen={true} aria-label="Navigation panel">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Navigation panel' });
+    expect(dialog).toHaveAttribute('aria-label', 'Navigation panel');
+  });
+
   it('locks body scroll when open and restores on close', () => {
     function Demo() {
       const [open, setOpen] = useState(false);

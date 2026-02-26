@@ -147,6 +147,7 @@ Release flow:
 | **Card**        | Content container with headers and heavy borders.          | `solid`, `outline`                    |
 | **Checkbox**    | Pixel-art checkbox with custom checkmark.                  | -                                     |
 | **DataTable**   | Data grid with sorting, global/column filters, and paging. | `client`, `server` (modes)            |
+| **Drawer**      | Slide-in panel for contextual navigation and actions.      | `left`, `right`, `top`, `bottom`      |
 | **Grid**        | Responsive retro grid system.                              | `columns`, `minWidth`, `gap`          |
 | **Header**      | Fixed top bar for navigation/branding.                     | `primary`, `secondary`, `transparent` |
 | **IconButton**  | Compact icon-only action button.                           | `default`, `outline`, `ghost`         |

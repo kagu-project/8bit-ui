@@ -1,7 +1,15 @@
 'use client';
 
 import { createPortal } from 'react-dom';
-import { createContext, useContext, useEffect, useId, useRef } from 'react';
+import {
+  Children,
+  createContext,
+  isValidElement,
+  useContext,
+  useEffect,
+  useId,
+  useRef,
+} from 'react';
 import type { AriaRole, FC, HTMLAttributes, MouseEvent, ReactNode } from 'react';
 import styles from './Drawer.module.css';
 
@@ -53,6 +61,20 @@ const FOCUSABLE_SELECTOR = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(', ');
 
+const hasDrawerHeaderTitle = (node: ReactNode): boolean =>
+  Children.toArray(node).some((child) => {
+    if (!isValidElement(child)) {
+      return false;
+    }
+
+    if (child.type === Header && Boolean((child.props as DrawerHeaderProps).title)) {
+      return true;
+    }
+
+    const nestedChildren = (child.props as { children?: ReactNode }).children;
+    return hasDrawerHeaderTitle(nestedChildren);
+  });
+
 const DrawerBase = ({
   isOpen,
   onClose,
@@ -69,7 +91,19 @@ const DrawerBase = ({
   const previousActiveElementRef = useRef<HTMLElement | null>(null);
   const previousBodyOverflowRef = useRef<string>('');
   const generatedTitleId = `drawer-title-${useId().replace(/:/g, '')}`;
+  const hasTitle = hasDrawerHeaderTitle(children);
   const titleId = ariaLabel || ariaLabelledBy ? undefined : generatedTitleId;
+  const computedAriaLabelledBy = ariaLabelledBy ?? (hasTitle ? titleId : undefined);
+  const computedAriaLabel =
+    ariaLabel ?? (!computedAriaLabelledBy && role === 'dialog' ? 'Drawer' : undefined);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    if (ariaLabel || ariaLabelledBy || hasTitle) return;
+    console.warn(
+      'Drawer requires an accessible name. Add `aria-label`, `aria-labelledby`, or `Drawer.Header title`.',
+    );
+  }, [ariaLabel, ariaLabelledBy, hasTitle, isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -152,7 +186,7 @@ const DrawerBase = ({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || typeof document === 'undefined') return null;
 
   const handleOverlayClick = () => {
     onClose?.();
@@ -172,8 +206,8 @@ const DrawerBase = ({
         className={`${styles.drawer} ${styles[placement]} ${sizeClass} ${className}`.trim()}
         role={role}
         aria-modal="true"
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy ?? titleId}
+        aria-label={computedAriaLabel}
+        aria-labelledby={computedAriaLabelledBy}
         onClick={handleDrawerClick}
         tabIndex={-1}
         ref={drawerRef}
