@@ -54,10 +54,18 @@ describe('FAB Component', () => {
     render(<FAB>Action</FAB>);
     const button = screen.getByRole('button');
 
+    // Enter key interaction
     fireEvent.keyDown(button, { key: 'Enter' });
     expect(button).toHaveAttribute('data-pressed', 'true');
 
     fireEvent.keyUp(button, { key: 'Enter' });
+    expect(button).toHaveAttribute('data-pressed', 'false');
+
+    // Space key interaction
+    fireEvent.keyDown(button, { key: ' ' });
+    expect(button).toHaveAttribute('data-pressed', 'true');
+
+    fireEvent.keyUp(button, { key: ' ' });
     expect(button).toHaveAttribute('data-pressed', 'false');
   });
 });
