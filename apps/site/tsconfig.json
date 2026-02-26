@@ -14,7 +14,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@kagu-project/8bit-ui": ["../../packages/ui/src/index.ts"]
     },
     "incremental": true,
     "plugins": [
