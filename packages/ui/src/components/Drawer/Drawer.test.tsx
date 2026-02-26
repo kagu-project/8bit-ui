@@ -1,9 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { useState } from 'react';
 import Drawer from './Drawer';
 
 describe('Drawer', () => {
+  beforeEach(() => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('renders nothing when not open', () => {
     render(
       <Drawer isOpen={false}>
