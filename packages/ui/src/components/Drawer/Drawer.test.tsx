@@ -257,6 +257,30 @@ describe('Drawer', () => {
     expect(dialog).toHaveAttribute('aria-label', 'Navigation panel');
   });
 
+  it('uses fallback accessible label for alertdialog when no title or aria labels are provided', () => {
+    render(
+      <Drawer isOpen={true} role="alertdialog">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const alertDialog = screen.getByRole('alertdialog', { name: 'Drawer' });
+    expect(alertDialog).toHaveAttribute('aria-label', 'Drawer');
+    expect(alertDialog).not.toHaveAttribute('aria-labelledby');
+  });
+
+  it('does not warn about missing accessible name for non-dialog roles', () => {
+    const warnSpy = vi.spyOn(console, 'warn');
+
+    render(
+      <Drawer isOpen={true} role="complementary">
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    expect(warnSpy).not.toHaveBeenCalled();
+  });
+
   it('locks body scroll when open and restores on close', () => {
     function Demo() {
       const [open, setOpen] = useState(false);

@@ -94,16 +94,18 @@ const DrawerBase = ({
   const hasTitle = hasDrawerHeaderTitle(children);
   const titleId = ariaLabel || ariaLabelledBy ? undefined : generatedTitleId;
   const computedAriaLabelledBy = ariaLabelledBy ?? (hasTitle ? titleId : undefined);
+  const requiresAccessibleName = role === 'dialog' || role === 'alertdialog';
   const computedAriaLabel =
-    ariaLabel ?? (!computedAriaLabelledBy && role === 'dialog' ? 'Drawer' : undefined);
+    ariaLabel ?? (!computedAriaLabelledBy && requiresAccessibleName ? 'Drawer' : undefined);
 
   useEffect(() => {
     if (!isOpen) return;
+    if (!requiresAccessibleName) return;
     if (ariaLabel || ariaLabelledBy || hasTitle) return;
     console.warn(
       'Drawer requires an accessible name. Add `aria-label`, `aria-labelledby`, or `Drawer.Header title`.',
     );
-  }, [ariaLabel, ariaLabelledBy, hasTitle, isOpen]);
+  }, [ariaLabel, ariaLabelledBy, hasTitle, isOpen, requiresAccessibleName]);
 
   useEffect(() => {
     if (!isOpen) return;
