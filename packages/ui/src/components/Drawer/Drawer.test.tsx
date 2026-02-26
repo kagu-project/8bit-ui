@@ -108,6 +108,26 @@ describe('Drawer', () => {
     expect(inside).toHaveFocus();
   });
 
+  it('keeps focus trapped when drawer container is focused and tabbing forward', () => {
+    render(
+      <Drawer isOpen={true}>
+        <Drawer.Footer>
+          <button type="button">First</button>
+          <button type="button">Last</button>
+        </Drawer.Footer>
+      </Drawer>,
+    );
+
+    const drawer = screen.getByRole('dialog');
+    const first = screen.getByRole('button', { name: 'First' });
+
+    drawer.focus();
+    expect(drawer).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'Tab' });
+    expect(first).toHaveFocus();
+  });
+
   it('restores focus to trigger when drawer closes', () => {
     function Demo() {
       const [open, setOpen] = useState(false);
@@ -189,6 +209,21 @@ describe('Drawer', () => {
     );
 
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+  });
+
+  it('is labelled by header title', () => {
+    render(
+      <Drawer isOpen={true}>
+        <Drawer.Header title="Drawer Title" />
+        <Drawer.Body>Content</Drawer.Body>
+      </Drawer>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Drawer Title' });
+    const title = screen.getByText('Drawer Title');
+
+    expect(dialog).toHaveAttribute('aria-labelledby', title.getAttribute('id'));
+    expect(title).toHaveAttribute('id');
   });
 
   it('locks body scroll when open and restores on close', () => {

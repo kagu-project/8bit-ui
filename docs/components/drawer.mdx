@@ -1,0 +1,47 @@
+# Drawer
+
+Use `Drawer` for slide-in panels that keep users in context without navigating away.
+
+## Import
+
+```tsx
+import { Drawer, Button } from '@kagu-project/8bit-ui';
+```
+
+## Basic Usage
+
+<div className="preview">
+  <DrawerPreview />
+</div>
+
+```tsx
+import { useState } from 'react';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<>
+  <Button onClick={() => setIsOpen(true)}>Open Drawer</Button>
+
+  <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} placement="left" size="md">
+    <Drawer.Header title="Navigation" onClose={() => setIsOpen(false)} />
+    <Drawer.Body>
+      <nav>
+        <a href="#getting-started">Getting Started</a>
+        <a href="#components">Components</a>
+      </nav>
+    </Drawer.Body>
+  </Drawer>
+</>;
+```
+
+## Key Props
+
+- `Drawer`: `isOpen`, `onClose`, `placement`, `size`, `role`
+- `Drawer.Header`: `title`, `onClose`
+- `Drawer.Body`, `Drawer.Footer`: layout sections
+
+## Accessibility
+
+- Uses `role="dialog"` and `aria-modal="true"`.
+- Closes on `Escape` and overlay click.
+- Traps keyboard focus while open.

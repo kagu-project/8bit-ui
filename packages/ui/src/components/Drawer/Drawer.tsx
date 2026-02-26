@@ -1,7 +1,7 @@
 'use client';
 
 import { createPortal } from 'react-dom';
-import { useEffect, useRef } from 'react';
+import { createContext, useContext, useEffect, useId, useRef } from 'react';
 import type { AriaRole, FC, HTMLAttributes, MouseEvent, ReactNode } from 'react';
 import styles from './Drawer.module.css';
 
@@ -42,6 +42,8 @@ export interface DrawerComponent extends FC<DrawerProps> {
   Footer: FC<DrawerFooterProps>;
 }
 
+const DrawerTitleContext = createContext<string | undefined>(undefined);
+
 const FOCUSABLE_SELECTOR = [
   'a[href]',
   'button:not([disabled])',
@@ -59,11 +61,15 @@ const DrawerBase = ({
   children,
   className = '',
   role = 'dialog',
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: DrawerProps) => {
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const previousActiveElementRef = useRef<HTMLElement | null>(null);
   const previousBodyOverflowRef = useRef<string>('');
+  const generatedTitleId = `drawer-title-${useId().replace(/:/g, '')}`;
+  const titleId = ariaLabel || ariaLabelledBy ? undefined : generatedTitleId;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -125,7 +131,7 @@ const DrawerBase = ({
         return;
       }
 
-      if (!e.shiftKey && active === last) {
+      if (!e.shiftKey && (active === drawer || active === last)) {
         e.preventDefault();
         first?.focus();
       }
@@ -166,29 +172,44 @@ const DrawerBase = ({
         className={`${styles.drawer} ${styles[placement]} ${sizeClass} ${className}`.trim()}
         role={role}
         aria-modal="true"
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledBy ?? titleId}
         onClick={handleDrawerClick}
         tabIndex={-1}
         ref={drawerRef}
         {...props}
       >
-        {children}
+        <DrawerTitleContext.Provider value={titleId}>{children}</DrawerTitleContext.Provider>
       </div>
     </>,
     document.body,
   );
 };
 
-const Header = ({ title, onClose, children, className = '', ...props }: DrawerHeaderProps) => (
-  <div className={`${styles.header} ${className}`} {...props}>
-    {title && <h2 className={styles.title}>{title}</h2>}
-    {children}
-    {onClose && (
-      <button className={styles.closeBtn} onClick={onClose} aria-label="Close drawer" type="button">
-        ×
-      </button>
-    )}
-  </div>
-);
+const Header = ({ title, onClose, children, className = '', ...props }: DrawerHeaderProps) => {
+  const titleId = useContext(DrawerTitleContext);
+
+  return (
+    <div className={`${styles.header} ${className}`} {...props}>
+      {title && (
+        <h2 id={titleId} className={styles.title}>
+          {title}
+        </h2>
+      )}
+      {children}
+      {onClose && (
+        <button
+          className={styles.closeBtn}
+          onClick={onClose}
+          aria-label="Close drawer"
+          type="button"
+        >
+          ×
+        </button>
+      )}
+    </div>
+  );
+};
 
 const Body = ({ children, className = '', ...props }: DrawerBodyProps) => (
   <div className={`${styles.body} ${className}`} {...props}>

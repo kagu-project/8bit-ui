@@ -21,7 +21,15 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
-    { children, variant = 'ghost', color = 'neutral', size = 'md', className = '', ...props },
+    {
+      children,
+      variant = 'ghost',
+      color = 'neutral',
+      size = 'md',
+      className = '',
+      type = 'button',
+      ...props
+    },
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const classes = [styles.iconButton, styles[variant], styles[color], styles[size], className]
@@ -29,7 +37,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       .join(' ');
 
     return (
-      <button ref={ref} className={classes} {...props}>
+      <button ref={ref} type={type} className={classes} {...props}>
         <span className={styles.icon}>{children}</span>
       </button>
     );

@@ -58,4 +58,18 @@ describe('IconButton', () => {
     );
     expect(ref).toHaveBeenCalledWith(expect.any(HTMLButtonElement));
   });
+
+  it('defaults type to button', () => {
+    render(<IconButton aria-label="Menu">☰</IconButton>);
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  });
+
+  it('respects explicit type prop', () => {
+    render(
+      <IconButton aria-label="Submit" type="submit">
+        ✓
+      </IconButton>,
+    );
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+  });
 });

@@ -5,6 +5,7 @@ export {
   DataTableRowSelectionPreview,
   DataTableServerModePreview,
 } from './data-table-previews';
+export { DrawerPreview } from './drawer-preview';
 export { LayoutPreview } from './layout-preview';
 export { MenuPreview } from './menu-preview';
 export { ModalPreview } from './modal-preview';
