@@ -16,6 +16,21 @@ describe('Button', () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
+  it('defaults native button type to button', () => {
+    render(<Button>Default Type</Button>);
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  });
+
+  it('respects explicit native button type', () => {
+    render(<Button type="submit">Submit</Button>);
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+  });
+
+  it('falls back invalid native button type to button', () => {
+    render(<Button type={'aaaaa' as unknown as 'button'}>Invalid</Button>);
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  });
+
   it('applies variant classes', () => {
     const { container } = render(<Button variant="link">Link Button</Button>);
     // We check if the class name includes the hashed module class for link

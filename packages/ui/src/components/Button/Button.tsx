@@ -105,7 +105,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       );
     }
 
-    const { onKeyDown, onKeyUp, onBlur, ...buttonProps } = props as ButtonAsButtonProps;
+    const { onKeyDown, onKeyUp, onBlur, type = 'button', ...buttonProps } =
+      props as ButtonAsButtonProps;
+    const nativeType = type === 'submit' || type === 'reset' || type === 'button' ? type : 'button';
 
     return (
       <button
@@ -124,6 +126,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
           onBlur?.(e);
           setIsPressed(false);
         }}
+        type={nativeType}
         {...buttonProps}
       >
         <span className={shapeClasses} />

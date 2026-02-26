@@ -27,6 +27,7 @@ const FAB = ({
   ...props
 }: FABProps) => {
   const [isPressed, setIsPressed] = useState(false);
+  const visualType = type === 'outline' ? 'outline' : 'solid';
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === ' ' || e.key === 'Enter') {
@@ -40,7 +41,7 @@ const FAB = ({
 
   return (
     <button
-      className={`${styles.fab} ${styles[type]} ${styles[variant]} ${styles[shape]} ${className}`}
+      className={`${styles.fab} ${styles[visualType]} ${styles[variant]} ${styles[shape]} ${className}`}
       data-pressed={isPressed}
       onKeyDown={(e) => {
         onKeyDown?.(e);
@@ -55,6 +56,7 @@ const FAB = ({
         setIsPressed(false);
       }}
       {...props}
+      type="button"
     >
       {children}
     </button>
