@@ -3,6 +3,8 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 
+export const MOBILE_DOCS_DRAWER_ID = 'mobile-docs-drawer';
+
 interface MobileNavContextValue {
   isOpen: boolean;
   open: () => void;
