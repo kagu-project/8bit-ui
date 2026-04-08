@@ -44,6 +44,7 @@ export default defineConfig({
       entry: resolve(dirname, 'src/index.ts'),
       name: '8BitUI',
       fileName: '8bit-ui',
+      cssFileName: 'style',
     },
     rollupOptions: {
       external: isExternalReactRuntime,

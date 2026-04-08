@@ -24,6 +24,7 @@ const runCapture = (command, args, cwd, env) =>
   }).trim();
 
 const smokeTsx = `import React, { useState } from 'react';
+import '@kagu-project/8bit-ui/style.css';
 import {
   AssetCard,
   Button,
