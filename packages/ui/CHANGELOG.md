@@ -1,5 +1,11 @@
 # 8bit-ui
 
+## 0.2.2
+
+### Patch Changes
+
+- 3226a2f: Upgrade the library's Vite and Vitest toolchain to patched supported versions, and preserve the published `@kagu-project/8bit-ui/style.css` export under Vite 7.
+
 ## 0.2.1
 
 ### Patch Changes
