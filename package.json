@@ -39,13 +39,15 @@
       "@rollup/pluginutils>picomatch": "4.0.4",
       "esbuild": "0.25.0",
       "flatted": "^3.4.2",
-      "minimatch": "^10.2.3",
+      "minimatch": "^10.2.5",
       "micromatch>picomatch": "2.3.2",
       "tinyglobby>picomatch": "4.0.4",
       "unplugin>picomatch": "4.0.4",
       "vite>picomatch": "4.0.4",
       "vitest>picomatch": "4.0.4",
+      "postcss": "^8.5.10",
       "rollup": ">=4.59.0",
+      "yaml": "^2.8.3",
       "undici": "^7.24.0"
     }
   },
