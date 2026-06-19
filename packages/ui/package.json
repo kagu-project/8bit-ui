@@ -79,8 +79,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/browser-playwright": "^4.1.6",
-    "@vitest/coverage-v8": "^4.1.6",
+    "@vitest/browser-playwright": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -96,8 +96,8 @@
     "storybook": "^10.4.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1",
-    "vite": "^7.3.2",
-    "vitest": "^4.1.6"
+    "vite": "^7.3.5",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3"
