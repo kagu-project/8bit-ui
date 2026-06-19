@@ -1,6 +1,12 @@
-# 8bit-ui
+<p align="center">
+  <img src="./public/8bit-ui-homepage.png" alt="8bit-ui homepage screenshot" width="480">
+</p>
 
-> Build retro-styled web apps with this pixelated React component library inspired by the golden age of handheld gaming.
+<p align="center">
+  Build retro-styled web apps with this pixelated React component library inspired by the golden age of handheld gaming.
+</p>
+
+# 8bit-ui
 
 ![Retro Style](https://img.shields.io/badge/style-retro-blue.svg) ![React](https://img.shields.io/badge/react-v19-61dafb.svg)
 
