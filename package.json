@@ -40,7 +40,7 @@
       "esbuild": "0.25.0",
       "flatted": "^3.4.2",
       "@babel/core": "^7.29.6",
-      "js-yaml": "^4.2.0",
+      "js-yaml": "^4.3.0",
       "minimatch": "^10.2.5",
       "micromatch>picomatch": "2.3.2",
       "read-yaml-file": "^2.1.0",
@@ -48,11 +48,14 @@
       "unplugin>picomatch": "4.0.4",
       "vite>picomatch": "4.0.4",
       "vitest>picomatch": "4.0.4",
-      "postcss": "^8.5.10",
+      "postcss": "^8.5.18",
       "rollup": ">=4.59.0",
       "yaml": "^2.8.3",
       "undici": "^7.28.0",
-      "ws": "8.21.0"
+      "ws": "8.21.0",
+      "brace-expansion@>=3.0.0 <=5.0.7": ">=5.0.8",
+      "sharp@<0.35.0": ">=0.35.0",
+      "@vitest/browser@>=4.0.0 <4.1.10": ">=4.1.10"
     }
   },
   "devDependencies": {
