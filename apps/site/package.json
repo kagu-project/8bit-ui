@@ -13,7 +13,7 @@
     "@kagu-project/8bit-ui": "workspace:*",
     "@shikijs/rehype": "^3.22.0",
     "github-slugger": "^2.0.0",
-    "next": "^16.2.11",
+    "next": "^16.3.0",
     "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
     "react": "^19.1.1",
@@ -27,7 +27,7 @@
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "eslint": "^9.20.1",
-    "eslint-config-next": "^16.2.11",
+    "eslint-config-next": "^16.3.0",
     "typescript": "^5.8.2"
   }
 }
