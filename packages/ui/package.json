@@ -97,7 +97,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.62.1",
     "vite": "^7.3.5",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3"
