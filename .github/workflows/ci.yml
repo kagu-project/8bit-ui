@@ -37,13 +37,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint
+      - name: Oxlint UI
         run: pnpm lint:ui
 
-      - name: Lint Site
+      - name: Oxlint Site
         run: pnpm lint:site
 
-      - name: Format check
+      - name: Oxfmt check
         run: pnpm format:check
 
       - name: Typecheck

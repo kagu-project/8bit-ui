@@ -17,33 +17,30 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm --filter @kagu-project/8bit-ui build && changeset publish",
-    "lint:ui": "pnpm --filter @kagu-project/8bit-ui lint",
-    "lint:site": "pnpm --filter 8bit-ui-site lint",
-    "lint": "pnpm lint:ui && pnpm lint:site",
-    "lint:fix": "pnpm --filter @kagu-project/8bit-ui lint:fix",
+    "lint:ui": "oxlint packages/ui --deny-warnings",
+    "lint:site": "oxlint apps/site --deny-warnings",
+    "lint": "oxlint packages/ui apps/site --deny-warnings",
+    "lint:fix": "oxlint packages/ui apps/site --fix --deny-warnings",
     "typecheck:ui": "pnpm --filter @kagu-project/8bit-ui typecheck",
     "typecheck:site": "pnpm --filter 8bit-ui-site typecheck",
-    "format": "pnpm --filter @kagu-project/8bit-ui format",
-    "format:check": "pnpm --filter @kagu-project/8bit-ui format:check",
+    "format": "oxfmt . --write",
+    "format:check": "oxfmt . --check",
     "typecheck": "pnpm typecheck:ui && pnpm typecheck:site",
     "validate": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm build:site && pnpm build-storybook && pnpm test:consumer",
     "storybook": "pnpm --filter @kagu-project/8bit-ui storybook",
-    "build-storybook": "pnpm --filter @kagu-project/8bit-ui build-storybook"
+    "build-storybook": "pnpm --filter @kagu-project/8bit-ui build-storybook",
+    "lint:fix:ui": "oxlint packages/ui --fix --deny-warnings",
+    "lint:fix:site": "oxlint apps/site --fix --deny-warnings"
   },
   "engines": {
-    "node": ">=22"
+    "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
   },
   "pnpm": {
     "overrides": {
-      "ajv": "6.14.0",
       "@rollup/pluginutils>picomatch": "4.0.4",
       "esbuild": "0.25.0",
-      "flatted": "^3.4.2",
       "@babel/core": "^7.29.6",
-      "js-yaml": "^4.3.0",
       "minimatch": "^10.2.5",
-      "micromatch>picomatch": "2.3.2",
-      "read-yaml-file": "^2.1.0",
       "tinyglobby>picomatch": "4.0.4",
       "unplugin>picomatch": "4.0.4",
       "vite>picomatch": "4.0.4",
@@ -53,14 +50,17 @@
       "yaml": "^2.8.3",
       "undici": "^7.29.1",
       "ws": "8.21.0",
-      "brace-expansion@>=3.0.0 <=5.0.8": ">=5.0.9",
+      "brace-expansion@>=3.0.0 <5.0.12": ">=5.0.12",
       "sharp@<0.35.4": "^0.35.4",
-      "@vitest/browser@>=4.0.0 <4.1.11": "^4.1.11",
-      "@humanfs/node@<0.16.8": "^0.16.8",
-      "baseline-browser-mapping@<2.11.0": "^2.11.0"
+      "@vitest/browser@>=4.0.0 <4.1.12": "^4.1.12",
+      "baseline-browser-mapping@<2.11.0": "^2.11.0",
+      "storybook@10.6.2>prettier": "-"
     }
   },
   "devDependencies": {
-    "@changesets/cli": "^2.31.0"
+    "@changesets/cli": "^3.0.3",
+    "oxlint": "1.89.0",
+    "oxfmt": "0.74.0",
+    "oxlint-tsgolint": "7.0.2004"
   }
 }

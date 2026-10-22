@@ -122,10 +122,10 @@ pnpm test:coverage    # unit tests with coverage
 pnpm build            # runtime bundles + declaration emit
 pnpm build-storybook  # storybook static build
 pnpm test:consumer    # pack+install+typecheck in a consumer fixture
-pnpm lint             # eslint checks
-pnpm format:check     # prettier check (no writes)
-pnpm lint:fix         # auto-fix eslint findings
-pnpm format           # apply prettier formatting
+pnpm lint             # Oxlint checks
+pnpm format:check     # Oxfmt check (no writes)
+pnpm lint:fix         # auto-fix Oxlint findings
+pnpm format           # apply Oxfmt formatting
 pnpm validate         # runs all of the above in sequence
 ```
 

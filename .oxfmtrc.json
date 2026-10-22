@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/storybook-static/**",
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/out/**",
+    ".pnpm-store/**",
+    "**/.consumer-*/**",
+    "pnpm-lock.yaml",
+    "**/next-env.d.ts"
+  ]
+}

@@ -15,8 +15,7 @@
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "baseUrl": "."
+    "strictNullChecks": true
   },
   "include": [
     "src/index.ts",

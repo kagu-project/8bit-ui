@@ -42,7 +42,7 @@ const adoptionReasons = [
   'Design once with reusable primitives instead of one-off homepage CSS experiments.',
   'Keep the nostalgic look while shipping performance-conscious React components.',
   'Create stronger visual hierarchy with modern section pacing and readable typography.',
-  'Scale from a single splash page to complete product documentation.'
+  'Scale from a single splash page to complete product documentation.',
 ] as const;
 
 export default function HomePage() {
@@ -63,7 +63,8 @@ export default function HomePage() {
                 Build A Modern Website With Pixel Character
               </Heading>
               <Text size="lg" className="homeLead">
-                8bit-ui gives you polished React components that feel nostalgic, read clearly, and look launch-ready on modern screens.
+                8bit-ui gives you polished React components that feel nostalgic, read clearly, and
+                look launch-ready on modern screens.
               </Text>
 
               <div className="commandPrompt" aria-label="Install command">
@@ -111,7 +112,8 @@ export default function HomePage() {
             Made For Teams Shipping Real Products
           </Heading>
           <Text className="homeSectionLead homeBodyText">
-            Bring a retro visual identity to your brand without sacrificing readability, responsiveness, or development velocity.
+            Bring a retro visual identity to your brand without sacrificing readability,
+            responsiveness, or development velocity.
           </Text>
         </div>
 
@@ -132,7 +134,10 @@ export default function HomePage() {
       </section>
       <section className="homeSection homeShowcaseSection" aria-labelledby="home-showcase-title">
         <div className="homeShowcaseGrid">
-          <Card title={<span className="homeCardTitle">Component Preview</span>} className="homeShowcaseCard">
+          <Card
+            title={<span className="homeCardTitle">Component Preview</span>}
+            className="homeShowcaseCard"
+          >
             <div className="homePreviewWindow" aria-hidden>
               <div className="homePreviewBar">
                 <span />
@@ -163,8 +168,15 @@ export default function HomePage() {
             </div>
           </Card>
 
-          <Card title={<span className="homeCardTitle">Why Teams Choose 8bit-ui</span>} className="homeShowcaseCard">
-            <Heading level={2} id="home-showcase-title" className="homeShowcaseTitle homeReadableHeading">
+          <Card
+            title={<span className="homeCardTitle">Why Teams Choose 8bit-ui</span>}
+            className="homeShowcaseCard"
+          >
+            <Heading
+              level={2}
+              id="home-showcase-title"
+              className="homeShowcaseTitle homeReadableHeading"
+            >
               Nostalgia In Style, Professional In Execution
             </Heading>
             <ul className="homeReasonList">
@@ -185,7 +197,11 @@ export default function HomePage() {
         <Card className="homeFinalCtaCard">
           <div className="homeFinalCta">
             <Tag label="Ready to launch" color="success" className="homeFinalTag" />
-            <Heading level={2} id="home-final-cta-title" className="homeFinalTitle homeReadableHeading">
+            <Heading
+              level={2}
+              id="home-final-cta-title"
+              className="homeFinalTitle homeReadableHeading"
+            >
               Design Your Retro Frontend Like A Modern Product Team
             </Heading>
             <Text className="homeFinalLead homeBodyText">
