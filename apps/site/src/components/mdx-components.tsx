@@ -23,7 +23,7 @@ import { DocsCodeBlock, DocsDiv } from './docs-mdx-wrappers';
 type MDXComponentMap = NonNullable<MDXRemoteProps['components']>;
 
 // Exclude non-component exports (functions, hooks)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// oxlint-disable-next-line no-unused-vars
 const { createDataTableActionsColumn, useToast, ...uiComponents } = UI;
 
 const compoundComponents = Object.fromEntries(

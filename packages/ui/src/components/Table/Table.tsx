@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import type {
   CSSProperties,
   HTMLAttributes,
+  JSX,
   ReactNode,
   TableHTMLAttributes,
   TdHTMLAttributes,

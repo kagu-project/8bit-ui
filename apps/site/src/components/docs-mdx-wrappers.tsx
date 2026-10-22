@@ -12,11 +12,7 @@ export const DocsCodeBlock = ({
   </pre>
 );
 
-export const DocsDiv = ({
-  className,
-  children,
-  ...props
-}: ComponentPropsWithoutRef<'div'>) => {
+export const DocsDiv = ({ className, children, ...props }: ComponentPropsWithoutRef<'div'>) => {
   if (typeof className === 'string' && className.split(/\s+/).includes('preview')) {
     return (
       <div className={classList('docsPreviewFrame', className)} {...props}>

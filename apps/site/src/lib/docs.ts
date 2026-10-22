@@ -60,7 +60,12 @@ const stripInlineMarkdown = (value: string): string =>
 
 const humanizeIdentifier = (value: string): string => {
   const trimmed = value.trim();
-  if (trimmed.includes(' ') || trimmed.includes('-') || trimmed.includes('_') || trimmed.includes('/')) {
+  if (
+    trimmed.includes(' ') ||
+    trimmed.includes('-') ||
+    trimmed.includes('_') ||
+    trimmed.includes('/')
+  ) {
     return trimmed;
   }
 
@@ -68,9 +73,7 @@ const humanizeIdentifier = (value: string): string => {
     return trimmed;
   }
 
-  return trimmed
-    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
-    .replace(/([a-z0-9])([A-Z])/g, '$1 $2');
+  return trimmed.replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2').replace(/([a-z0-9])([A-Z])/g, '$1 $2');
 };
 
 const humanizeTopHeading = (source: string): string =>
