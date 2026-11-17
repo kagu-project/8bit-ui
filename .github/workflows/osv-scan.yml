@@ -20,7 +20,6 @@ jobs:
     with:
       scan-args: |-
         --lockfile=pnpm-lock.yaml
-        --severity=HIGH
       upload-sarif: false
 
   osv-full:
@@ -34,6 +33,5 @@ jobs:
       scan-args: |-
         --recursive
         --lockfile=pnpm-lock.yaml
-        --severity=HIGH
       fail-on-vuln: true
       upload-sarif: false
